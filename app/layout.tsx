@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Poppins } from "next/font/google";
 import "./globals.css";
 import {
   FaFacebookF,
@@ -21,8 +21,9 @@ import {
 } from "@mantine/core";
 import NotificationIcon from "@/components/home/notification-icon";
 import LoveIcon from "@/components/home/love-icon";
+import classes from "@/components/home/login.module.css"
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Poppins({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -38,6 +39,7 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <ColorSchemeScript />
+        
       </head>
       <body className={inter.className}>
         <MantineProvider>
@@ -121,12 +123,12 @@ export default function RootLayout({
                     />
                   </div>
 
-                  <div className=" flex gap-[29px]">
+                  <div className=" flex items-center gap-[29px]">
                     <article className=" flex gap-[29px]">
                       <div className=" gap-[14px] flex ">
                         <Indicator
                           inline
-                          label="0"
+                          label={<span className="w-[22px] h-[22px] min-w-[22px] min-h-[22px] text-sm leading-[24.5px] rounded-full bg-purple">0</span>}
                           size={18}
                           color="#4B0082"
                           offset={6}
@@ -149,7 +151,7 @@ export default function RootLayout({
                       </div>
                     </article>
 
-                    <Button className=" bg-purple rounded-[50px] hover:bg-[#7630F7] whitespace-nowrap text-white ">
+                    <Button classNames={classes}>
                       Log in
                     </Button>
                   </div>
