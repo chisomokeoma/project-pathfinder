@@ -1,114 +1,130 @@
+
+import Development from "@/components/icons/development";
+import Finance from "@/components/icons/finance";
+import GraphicsDesign from "@/components/icons/graphics-design";
+import HeroText from "@/components/icons/hero-text";
+import Lifestyle from "@/components/icons/lifestyle";
+import Management from "@/components/icons/management";
+import Marketing from "@/components/icons/marketing";
+import { Button } from "@mantine/core";
+import { ArrowLeft, ArrowRight } from "iconsax-react";
 import Image from "next/image";
+
+const items = [
+  {
+    icon: <GraphicsDesign />,
+    text: "Graphic Design",
+    number: 22,
+  },
+  {
+    icon: <Finance />,
+    text: "Finance",
+    number: 41,
+  },
+  {
+    icon: <Development />,
+    text: "Development",
+    number: 29,
+  },
+  {
+    icon: <Marketing />,
+    text: "Marketing",
+    number: 22,
+  },
+  {
+    icon: <Lifestyle />,
+    text: "Life Style",
+    number: 22,
+  },
+  {
+    icon: <Management />,
+    text: "Management",
+    number: 22,
+  },
+];
 
 export default function Home() {
   return (
-    // <main className="flex min-h-screen flex-col items-center justify-between p-24">
-    //   <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-    //     <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-    //       Get started by editing&nbsp;
-    //       <code className="font-mono font-bold">app/page.tsx</code>
-    //     </p>
-    //     <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:size-auto lg:bg-none">
-    //       <a
-    //         className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-    //         href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-    //         target="_blank"
-    //         rel="noopener noreferrer"
-    //       >
-    //         By{" "}
-    //         <Image
-    //           src="/vercel.svg"
-    //           alt="Vercel Logo"
-    //           className="dark:invert"
-    //           width={100}
-    //           height={24}
-    //           priority
-    //         />
-    //       </a>
-    //     </div>
-    //   </div>
-
-    //   <div className="relative z-[-1] flex place-items-center before:absolute before:h-[300px] before:w-full before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 sm:before:w-[480px] sm:after:w-[240px] before:lg:h-[360px]">
-    //     <Image
-    //       className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-    //       src="/next.svg"
-    //       alt="Next.js Logo"
-    //       width={180}
-    //       height={37}
-    //       priority
-    //     />
-    //   </div>
-
-    //   <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left">
-    //     <a
-    //       href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-    //       className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-    //       target="_blank"
-    //       rel="noopener noreferrer"
-    //     >
-    //       <h2 className="mb-3 text-2xl font-semibold">
-    //         Docs{" "}
-    //         <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-    //           -&gt;
-    //         </span>
-    //       </h2>
-    //       <p className="m-0 max-w-[30ch] text-sm opacity-50">
-    //         Find in-depth information about Next.js features and API.
-    //       </p>
-    //     </a>
-
-    //     <a
-    //       href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-    //       className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-    //       target="_blank"
-    //       rel="noopener noreferrer"
-    //     >
-    //       <h2 className="mb-3 text-2xl font-semibold">
-    //         Learn{" "}
-    //         <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-    //           -&gt;
-    //         </span>
-    //       </h2>
-    //       <p className="m-0 max-w-[30ch] text-sm opacity-50">
-    //         Learn about Next.js in an interactive course with&nbsp;quizzes!
-    //       </p>
-    //     </a>
-
-    //     <a
-    //       href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-    //       className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-    //       target="_blank"
-    //       rel="noopener noreferrer"
-    //     >
-    //       <h2 className="mb-3 text-2xl font-semibold">
-    //         Templates{" "}
-    //         <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-    //           -&gt;
-    //         </span>
-    //       </h2>
-    //       <p className="m-0 max-w-[30ch] text-sm opacity-50">
-    //         Explore starter templates for Next.js.
-    //       </p>
-    //     </a>
-
-    //     <a
-    //       href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-    //       className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-    //       target="_blank"
-    //       rel="noopener noreferrer"
-    //     >
-    //       <h2 className="mb-3 text-2xl font-semibold">
-    //         Deploy{" "}
-    //         <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-    //           -&gt;
-    //         </span>
-    //       </h2>
-    //       <p className="m-0 max-w-[30ch] text-balance text-sm opacity-50">
-    //         Instantly deploy your Next.js site to a shareable URL with Vercel.
-    //       </p>
-    //     </a>
-    //   </div>
-    // </main>
-    <div></div>
+    <section>
+      <section className="h-[520px] flex items-center bg-[url(/hero-bg-image.png)] bg-cover bg-center bg-no-repeat">
+        <div className="flex max-w-[1400px] mx-auto items-center pl-[60px] justify-between">
+          <div className="flex flex-col gap-8">
+            <div className="flex gap-3 flex-col">
+              <div className="flex flex-col gap-1">
+                <span className="inline-flex font-medium text-[40px] leading-[60px] items-end gap-1">
+                  Unlock Your <HeroText />
+                </span>
+                <span className="font-medium text-[40px] leading-[60px]">
+                  Find <span className="font-bold">Your Mentor</span> Today{" "}
+                </span>
+              </div>
+              <p className="text-[18px] leading-[28.8px] text-[#6D6C80]">
+                Dream big with mentors to help guide your way.
+              </p>
+            </div>
+            <Button
+              styles={{
+                root: {
+                  boxShadow: "4px 6px 0px 0px #7630F7",
+                  background: "#4B0082",
+                  height: "49px",
+                  paddingInline: "32px",
+                  borderRadius: "50px",
+                  width: "fit-content",
+                },
+              }}
+            >
+              <span className="flex items-center text-base font-semibold leading-[17.92px] text-white gap-1">
+                Get Started
+                <ArrowRight size={14} color="white" />
+              </span>
+            </Button>
+          </div>
+          <Image
+            src="/hero-image.png"
+            width={600}
+            height={600}
+            className="h-full w-[720px] object-cover"
+            alt="illustration"
+          />
+        </div>
+      </section>
+      <section className="mt-[120px] mb-[200px] max-w-[1400px] mx-auto px-4">
+        <div className="gap-[14px] items-center flex flex-col">
+          <span className="rounded-[30px] bg-[#EFEEFE] px-4 py-[2px] font-medium text-base leading-[25.92px] text-[#4B0082]">
+            Trending Categories
+          </span>
+          <h2 className="text-[36px] text-[#161439] tracking-[-0.75px] font-semibold">
+            Top Category We Have
+          </h2>
+          <p className="text-center text-base text-[#020617] leading-7">
+            Find mentors in any of these industries
+          </p>
+          <div className="bg-[#85608833] w-full rounded-[500px] pt-[52px] pb-[45px] px-[50px] flex items-center gap-[45px]">
+            <span className="w-[50px] bg-[#4B0082] border border-[#F1F5F9] rounded-[25px] min-w-[50px] flex items-center justify-center h-[50px] min-h-[50px]">
+              <ArrowLeft color="white" size={15} />
+            </span>
+            <div className="w-full flex gap-11 overflow-hidden">
+              {items.map((item, idx) => (
+                <div key={idx} className="flex items-center flex-col gap-3">
+                  {item.icon}
+                  <div className="flex flex-col items-center gap-2">
+                    <p className="text-[18px] font-medium text-[#161439] leading-[27px]">
+                      {item.text}
+                    </p>
+                    <span className="text-[#6D6C80] text-base leading-[20.8px]">
+                      ({item.number})
+                    </span>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <span className="w-[50px] bg-[#4B0082] border border-[#F1F5F9] rounded-[25px] min-w-[50px] flex items-center justify-center h-[50px] min-h-[50px]">
+              <ArrowRight color="white" size={15} />
+            </span>
+          </div>
+        </div>
+      </section>
+    </section>
   );
 }

@@ -21,9 +21,44 @@ import {
 } from "@mantine/core";
 import NotificationIcon from "@/components/home/notification-icon";
 import LoveIcon from "@/components/home/love-icon";
-import classes from "@/components/home/login.module.css"
+import classes from "@/components/home/login.module.css";
+import { IoIosArrowDown } from "react-icons/io";
+import Link from "next/link";
 
-const inter = Poppins({ subsets: ["latin"] });
+const inter = Inter({
+  subsets: ["latin"],
+});
+
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: [
+    "100",
+    "200",
+    "300",
+    "400",
+    "500",
+    "600",
+    "700",
+    "800",
+    "900",
+    "100",
+    "200",
+    "300",
+    "400",
+    "500",
+    "600",
+    "700",
+    "800",
+    "900",
+  ],
+});
+
+const navArray = [
+  { name: "Home", link: "/" },
+  { name: "Resources", link: "" },
+  { name: "Mentors", link: "/mentors" },
+  { name: "Blog", link: "" },
+];
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -35,40 +70,48 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+ 
   return (
     <html lang="en">
       <head>
         <ColorSchemeScript />
-        
       </head>
-      <body className={inter.className}>
+      <body className={poppins.className}>
         <MantineProvider>
-          <main className=" flex flex-col flex-1 h-screen">
-            <header className=" flex flex-col">
-              <nav className=" py-[11px] px-[clamp(3.1rem,8.375vw,7.4rem)] flex justify-between bg-purple text-white">
-                <section className=" flex gap-[clamp(0.9rem,2vw,1.8rem)] ">
+          <main>
+            <header className=" py-[11px] bg-purple text-white">
+              <div className="flex max-w-[1400px] mx-auto px-4 justify-between items-center">
+                <section className=" flex items-center gap-[clamp(0.9rem,2vw,1.8rem)] ">
                   <div className=" flex  gap-[10px] items-center ">
                     <GrLocation color="#DAD4FF" size={20} />
 
-                    <p className=" text-creame text-[14px] font-medium font-[Inter]">
+                    <p
+                      className={`${poppins.className} text-creame text-[14px] font-medium`}
+                    >
                       123 Str., Lagos, Nigeria
                     </p>
                   </div>
 
                   <div className=" flex items-center gap-[9.6px]">
                     <GrMailOption color="#DAD4FF" />
-                    <p className=" text-creame text-[14px] font-medium font-[Inter]">
+                    <p
+                      className={`${poppins.className} text-creame text-[14px] font-medium`}
+                    >
                       info@pathfinders.com
                     </p>
                   </div>
                 </section>
-                <section className="flex gap-[1.18rem]">
+                <section className="flex items-center gap-[1.18rem]">
                   <div className=" flex items-center gap-[9.6px]">
                     <PiPhoneCallLight color="#DAD4FF" size={20} />
-                    <p className=" text-creame text-[14px] font-medium font-[Inter]">
+                    <p
+                      className={`${poppins.className} text-creame text-[14px] font-medium`}
+                    >
                       Call us:
                     </p>
-                    <p className=" text-creame text-[14px] font-medium font-[Inter]">
+                    <p
+                      className={`${poppins.className} text-creame text-[14px] font-medium`}
+                    >
                       234 801234567
                     </p>
                   </div>
@@ -86,9 +129,10 @@ export default function RootLayout({
                     </article>
                   </div>
                 </section>
-              </nav>
-
-              <div className="py-[11px] px-[clamp(3.1rem,8.375vw,7.4rem)] justify-between items-center flex">
+              </div>
+            </header>
+            <nav className="py-[11px] sticky top-0 bg-white w-full">
+              <div className="flex items-center max-w-[1400px] mx-auto px-4 justify-between">
                 <section className=" flex gap-[clamp(2.5rem,5.9vw,5.3rem)] items-center">
                   <figure className=" w-[clamp(2.7rem,4.4vw,4.4rem)] h-[clamp(2.7rem,4.4vw,4.4rem)]">
                     <Image
@@ -100,12 +144,19 @@ export default function RootLayout({
                     />
                   </figure>
 
-                  <ul className=" flex justify-between gap-[11px]">
-                    <li>Home</li>
-                    <li>Resources</li>
-                    <li>Mentors</li>
-                    <li>Blog</li>
-                  </ul>
+                  <div className=" flex justify-between gap-[27px]">
+                    {navArray.map((item) => (
+                      <Link
+                        href={item.link}
+                        className=" flex gap-[4px] items-center cursor-pointer hover:text-purple"
+                      >
+                        <p className=" text-[#161439] font-medium text-base ">{item.name}</p>
+                        <span className="pt-3  ">
+                          <IoIosArrowDown />
+                        </span>
+                      </Link>
+                    ))}
+                  </div>
                 </section>
                 <section className=" flex gap-6 items-center ">
                   <div className="flex border-[#8D9DB5] h-12 px-[9px] border items-center rounded-[50px] min-w-[120px] w-[80%] overflow-hidden">
@@ -125,44 +176,44 @@ export default function RootLayout({
 
                   <div className=" flex items-center gap-[29px]">
                     <article className=" flex gap-[29px]">
-                      <div className=" gap-[14px] flex ">
-                        <Indicator
-                          inline
-                          label={<span className="w-[22px] h-[22px] min-w-[22px] min-h-[22px] text-sm leading-[24.5px] rounded-full bg-purple">0</span>}
-                          size={18}
-                          color="#4B0082"
-                          offset={6}
-                        >
+                      <div className=" gap-[14px] flex items-center ">
+                        <article className=" relative">
+                          <div
+                            className=" flex rounded-full bg-purple items-center justify-center p-[4px] w-[25px] h-[25px] absolute left-[21px] bottom-[29px]
+    "
+                          >
+                            <p className=" text-white">0</p>
+                          </div>
+
                           <span>
                             <LoveIcon />
                           </span>
-                        </Indicator>
-                        <Indicator
-                          inline
-                          label="0"
-                          size={18}
-                          color="#4B0082"
-                          offset={6}
-                        >
+                        </article>
+
+                        <article className=" relative">
+                          <div
+                            className=" flex rounded-full bg-purple items-center justify-center p-[4px] w-[25px] h-[25px] absolute left-[21px] bottom-[29px]
+    "
+                          >
+                            <p className=" text-white">0</p>
+                          </div>
+
                           <span>
                             <NotificationIcon />
                           </span>
-                        </Indicator>
+                        </article>
                       </div>
                     </article>
-
-                    <Button classNames={classes}>
-                      Log in
-                    </Button>
+                      <Link href="/login">
+                    <Button classNames={classes}  >Log in</Button>
+                      </Link>
                   </div>
                 </section>
               </div>
-            </header>
-
-            <div className=" flex flex-1">{children}</div>
-
+            </nav>
+            {children}
             <footer className="  bg-purple  py-[37px]">
-              <section className=" mx-auto flex justify-between max-w-[1400px]">
+              <section className=" mx-auto flex justify-between px-4 max-w-[1400px]">
                 <div className=" flex flex-col gap-[13px]">
                   <figure className=" w-[clamp(2.7rem,4.4vw,4.4rem)] h-[clamp(2.7rem,4.4vw,4.4rem)]">
                     <Image
@@ -255,6 +306,19 @@ export default function RootLayout({
                 </div>
               </section>
             </footer>
+            <section className="bg-[#392A48] py-[35px]">
+              <section className="flex items-center max-w-[1400px] px-4 mx-auto justify-between">
+                <p className="text-base leading-7 text-[#8C9AB4]">
+                  &copy; 2024 pathfinders.com. All rights reserved.
+                </p>
+                <div className="flex items-center gap-4">
+                  <span className="w-[1px] h-3 bg-[#8C9AB4]" />
+                  <p className="text-base leading-7 text-[#8C9AB4]">
+                    Privacy Policy
+                  </p>
+                </div>
+              </section>
+            </section>
           </main>
         </MantineProvider>
       </body>
