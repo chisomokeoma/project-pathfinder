@@ -13,6 +13,8 @@ import Image from "next/image";
 import { MdOutlineArrowForwardIos } from "react-icons/md";
 import classes from "@/components/home/signup.module.css";
 import MentorText from "@/components/home/mentor-text";
+import { Carousel } from "@mantine/carousel";
+import { FaStar } from "react-icons/fa";
 
 const items = [
   {
@@ -44,6 +46,27 @@ const items = [
     icon: <Management />,
     text: "Management",
     number: 22,
+  },
+];
+
+const carouselList = [
+  {
+    name: "Ngozi Onwuka",
+    img: "expertise1.svg",
+    skill: " Development",
+    details: "Learning JavaScript With Imagination",
+  },
+  {
+    name: "Ngozi Onwuka",
+    img: "expertise1.svg",
+    skill: " Development",
+    details: "Learning JavaScript With Imagination",
+  },
+  {
+    name: "Ngozi Onwuka",
+    img: "expertise1.svg",
+    skill: " Development",
+    details: "Learning JavaScript With Imagination",
   },
 ];
 
@@ -230,7 +253,7 @@ export default function Home() {
       </section>
 
       {/* Explore Section */}
-      <section className=" bg-[#85608833] h-[460px]  justify-between px-[100px] flex flex-col gap-[72px] py-[100px] items-center ">
+      <section className=" bg-[#85608833] h-[801px]  px-[100px] flex flex-col gap-[62px] py-[50px] items-center  mb-2">
         <div className=" flex flex-col gap-[18px] items-center">
           <span className="rounded-[30px] bg-[#EFEEFE] px-4 py-[2px] font-medium text-base leading-[25.92px] text-[#4B0082]">
             Top Class Courses
@@ -240,15 +263,15 @@ export default function Home() {
             Explore Our Lessons and Webninars
           </h3>
         </div>
-        {/* <section>
-          <div className=" p-[26px] flex flex-col gap[20px] bg-white">
-            <figure className=" w-[278px]">
+        <section>
+          {/* <div className=" p-[clamp(12px,1.8vw,26px)] flex flex-col gap-[clamp(10px,1.4vw,20px)] bg-white">
+            <figure className=" w-[clamp(200px,19vw,278px)] ">
               <Image
-                src="/laravel.svg"
+                src="/expertise1.svg"
                 width={20}
                 height={20}
                 alt="laravel img"
-                className="w-full"
+                className="w-full "
               />
             </figure>
             <section className=" flex flex-col gap-[22px] ">
@@ -258,11 +281,110 @@ export default function Home() {
                     Development
                   </p>
                 </article>
+                <article className=" flex gap-1 items-center ">
+                  <FaStar size={14} color="#F8BC24" />
+                  <p>(4.5 Reviews)</p>
+                </article>
               </div>
-              <div></div>
+              <div className=" flex flex-col gap-[23px] ">
+                <section className=" flex flex-col gap[14px]">
+                  <h3>Learning JavaScript With Imagination</h3>
+                  <p>
+                    By <span>Ngozi Onwuka</span>
+                  </p>
+                </section>
+                <Button
+                  styles={{
+                    root: {
+                      background: "#4B0082",
+                      height: "49px",
+                      paddingInline: "32px",
+                      borderRadius: "50px",
+                      width: "fit-content",
+                    },
+                  }}
+                >
+                  <span className="flex items-center text-base font-semibold leading-[17.92px] text-white gap-1">
+                    Enroll Now
+                    <ArrowRight size={14} color="white" />
+                  </span>
+                </Button>
+                <section className=" flex justify-between ">
+                  <p>12,000 NGN</p>
+                </section>
+              </div>
+            </section>
+          </div> */}
+          <Carousel
+            withIndicators
+            // height={200}
+            slideSize={{ base: "100%", sm: "50%", md: "33.333333%" }}
+            slideGap={{ base: 0, sm: "md" }}
+            loop
+            align="start"
+          >
+            {carouselList.map((item) => (
+
+            <Carousel.Slide>
+ <div className=" p-[clamp(12px,1.8vw,26px)] flex flex-col gap-[clamp(10px,1.4vw,20px)] bg-white">
+            <figure className=" w-[clamp(200px,19vw,278px)] ">
+              <Image
+                src="/expertise1.svg"
+                width={20}
+                height={20}
+                alt="laravel img"
+                className="w-full "
+              />
+            </figure>
+            <section className=" flex flex-col gap-[22px] ">
+              <div className=" flex justify-between items-center">
+                <article className=" py-[7px] px-[13px] bg-[#EFEFF2] rounded-[50px]">
+                  <p className=" text-[#161439] text-[13px] font-medium">
+                    Development
+                  </p>
+                </article>
+                <article className=" flex gap-1 items-center ">
+                  <FaStar size={14} color="#F8BC24" />
+                  <p>(4.5 Reviews)</p>
+                </article>
+              </div>
+              <div className=" flex flex-col gap-[23px] ">
+                <section className=" flex flex-col gap[14px]">
+                  <h3>Learning JavaScript With Imagination</h3>
+                  <p>
+                    By <span>Ngozi Onwuka</span>
+                  </p>
+                </section>
+                <Button
+                  styles={{
+                    root: {
+                      background: "#4B0082",
+                      height: "49px",
+                      paddingInline: "32px",
+                      borderRadius: "50px",
+                      width: "fit-content",
+                    },
+                  }}
+                >
+                  <span className="flex items-center text-base font-semibold leading-[17.92px] text-white gap-1">
+                    Enroll Now
+                    <ArrowRight size={14} color="white" />
+                  </span>
+                </Button>
+                <section className=" flex justify-between ">
+                  <p>12,000 NGN</p>
+                </section>
+              </div>
             </section>
           </div>
-        </section> */}
+
+            </Carousel.Slide>
+            ))}
+            {/* <Carousel.Slide>2</Carousel.Slide>
+            <Carousel.Slide>3</Carousel.Slide> */}
+          
+          </Carousel>
+        </section>
       </section>
     </section>
   );

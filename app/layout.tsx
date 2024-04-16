@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Poppins } from "next/font/google";
 import "./globals.css";
 import "@mantine/core/styles.css";
+import "@mantine/carousel/styles.css";
 import {
   FaFacebookF,
   FaLinkedinIn,
@@ -207,8 +208,18 @@ export default function RootLayout({
                         </article>
                       </div>
                     </article>
-                    <Link href="/login">
-                      <Button classNames={classes}>Log in</Button>
+                    <Link href="/create-account">
+                      <Button
+                        classNames={classes}
+                        styles={{
+                          root: {
+                            backgroundColor: "#4B0082",
+                            borderRadius: "50px",
+                          },
+                        }}
+                      >
+                        Log in
+                      </Button>
                     </Link>
                   </div>
                 </section>
