@@ -145,8 +145,8 @@ export default function RootLayout({
                   </figure>
 
                   <div className=" flex justify-between gap-[27px]">
-                    {navArray.map((item) => (
-                      <Link
+                    {navArray.map((item, idx) => (
+                      <Link key={idx}
                         href={item.link}
                         className=" flex gap-[4px] items-center cursor-pointer hover:text-purple"
                       >

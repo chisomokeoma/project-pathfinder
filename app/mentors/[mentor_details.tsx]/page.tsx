@@ -1,6 +1,7 @@
 "use client";
 
 import Hero from "@/components/home/hero";
+import Image from "next/image";
 import { useRouter, useSearchParams } from "next/navigation";
 
 function Mentorsdetails({ params }: { params: { mentor_details: string } }) {
@@ -15,7 +16,15 @@ function Mentorsdetails({ params }: { params: { mentor_details: string } }) {
       <main className="w-full h-full flex flex-col gap-[20px]">
         <div className="w-[1050px] h-[368.19px] bg-purple mx-auto rounded-[8px] flex shadow-xl">
           <div className="w-[250px] h-[250px] rounded-[50px] ml-[50px] mt-[50px]">
-            <img src="Ngozi.svg/" alt="" />
+          <figure className=" w-[243px] ">
+                      <Image
+                        src='/instructor3.svg'
+                        alt="mentors-images"
+                        width={20}
+                        height={20}
+                        className=" w-full"
+                      />
+                    </figure>
           </div>
           <div className="w-[655px] h-[268.19px] ml-[50px] mt-[45px] flex flex-col gap-[15px]">
             <div className="w-[184px] h-[32px] text-[24px] md:semi-bold text-white">

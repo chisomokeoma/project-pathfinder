@@ -44,7 +44,7 @@ export default function CreateAccountMentee() {
                 <Button classNames={classes}>Sign Up</Button>
               </Link>
               <p className="text-base self-center leading-7 text-[#6D6C80]">
-                Already have an account?{" "}
+                Already have an account?
                 <Link
                   href="/login"
                   className="text-[#5751E1] text-base leading-7 underline"
