@@ -1,3 +1,4 @@
+"use client";
 
 import Development from "@/components/icons/development";
 import Finance from "@/components/icons/finance";
@@ -6,9 +7,12 @@ import HeroText from "@/components/icons/hero-text";
 import Lifestyle from "@/components/icons/lifestyle";
 import Management from "@/components/icons/management";
 import Marketing from "@/components/icons/marketing";
-import { Button } from "@mantine/core";
+import { Avatar, Button } from "@mantine/core";
 import { ArrowLeft, ArrowRight } from "iconsax-react";
 import Image from "next/image";
+import { MdOutlineArrowForwardIos } from "react-icons/md";
+import classes from "@/components/home/signup.module.css";
+import MentorText from "@/components/home/mentor-text";
 
 const items = [
   {
@@ -43,6 +47,11 @@ const items = [
   },
 ];
 
+const mentorList = [
+  "Meet Top Class Mentors",
+  "Access Learning Resources",
+  "Flexible Schedules",
+];
 export default function Home() {
   return (
     <section>
@@ -124,6 +133,136 @@ export default function Home() {
             </span>
           </div>
         </div>
+      </section>
+      {/* About Section */}
+      <section className="mb-[100px] max-w-[1400px] mx-auto px-5 items-center">
+        <section className="flex items-center ">
+          <div className=" flex flex-1 flex-col">
+            <iframe
+              width="560"
+              height="315"
+              src="https://www.youtube.com/embed/yL3nyDDrY1k?si=PFFJ44UNV5ojuACI"
+              title="YouTube video player"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerPolicy="strict-origin-when-cross-origin"
+              allowFullScreen
+            ></iframe>
+
+            <div
+              className=" py-[13px] px-[20px] flex flex-col gap-[2px] rounded-[10px] border border-[#B2BBCC] w-[220px] -mt-[1rem] -ml-[5rem]  bg-white"
+              style={{ boxShadow: "0px 6px 0px 0px #B2BBCC" }}
+            >
+              <h4 className=" font-semibold text-[16px] text-[#161439]">
+                10K+{" "}
+                <span className=" font-medium text-[16px] text-purple">
+                  Enrolled Mentees
+                </span>
+              </h4>
+              <Avatar.Group>
+                <Avatar src="/instructor1.svg" />
+                <Avatar src="/instructor2.svg" />
+                <Avatar src="/instructor3.svg" />
+                <Avatar src="/instructor4.svg" />
+                <Avatar>+2</Avatar>
+              </Avatar.Group>
+            </div>
+          </div>
+
+          <section className=" flex flex-col gap-[40px] flex-1">
+            <div className="gap-[13px] flex flex-col">
+              <article className=" px-4 py-[2px] bg-violet rounded-[30px] w-fit ">
+                <p className="text-base font-medium text-purple">
+                  More About Us
+                </p>
+              </article>
+              <div className="flex flex-col gap-1">
+                <span className="inline-flex font-semibold text-[36px] leading-[60px] items-end gap-1">
+                  Top Class
+                  <MentorText />
+                </span>
+                <span className="font-semibold text-[36px] leading-[60px]">
+                  All in One Place
+                </span>
+              </div>
+              <div className=" flex flex-col gap-[22px]">
+                <p className=" w-[500px] text-[#020617] text-[16px] font-normal">
+                  With a diverse network of mentors from various fields and
+                  experiences, we strive to foster a community of empowered
+                  individuals, ready to reach their fullest potential
+                </p>
+
+                {mentorList?.map((item, idx) => (
+                  <ul
+                    className=" flex flex-col gap-[15px] justify-center"
+                    key={idx}
+                  >
+                    <article className=" flex gap-[16px]">
+                      <div className=" rounded-full w-[30px] h-[30px] flex items-center p-[8px] bg-purple">
+                        <MdOutlineArrowForwardIos size={16} color="white" />
+                      </div>
+                      <p className=" text-[18px] text-[#161439] font-semibold">
+                        {item}
+                      </p>
+                    </article>
+                  </ul>
+                ))}
+              </div>
+            </div>
+            <Button
+              styles={{
+                root: {
+                  background: "#4B0082",
+                  height: "49px",
+                  paddingInline: "32px",
+                  borderRadius: "50px",
+                  width: "fit-content",
+                },
+              }}
+            >
+              <span className="flex items-center text-base font-semibold leading-[17.92px] text-white gap-1">
+                Get Started
+                <ArrowRight size={14} color="white" />
+              </span>
+            </Button>
+          </section>
+        </section>
+      </section>
+
+      {/* Explore Section */}
+      <section className=" bg-[#85608833] h-[460px]  justify-between px-[100px] flex flex-col gap-[72px] py-[100px] items-center ">
+        <div className=" flex flex-col gap-[18px] items-center">
+          <span className="rounded-[30px] bg-[#EFEEFE] px-4 py-[2px] font-medium text-base leading-[25.92px] text-[#4B0082]">
+            Top Class Courses
+          </span>
+
+          <h3 className=" font-semibold text-[36px] text-[#161439]">
+            Explore Our Lessons and Webninars
+          </h3>
+        </div>
+        {/* <section>
+          <div className=" p-[26px] flex flex-col gap[20px] bg-white">
+            <figure className=" w-[278px]">
+              <Image
+                src="/laravel.svg"
+                width={20}
+                height={20}
+                alt="laravel img"
+                className="w-full"
+              />
+            </figure>
+            <section className=" flex flex-col gap-[22px] ">
+              <div className=" flex justify-between items-center">
+                <article className=" py-[7px] px-[13px] bg-[#EFEFF2] rounded-[50px]">
+                  <p className=" text-[#161439] text-[13px] font-medium">
+                    Development
+                  </p>
+                </article>
+              </div>
+              <div></div>
+            </section>
+          </div>
+        </section> */}
       </section>
     </section>
   );
