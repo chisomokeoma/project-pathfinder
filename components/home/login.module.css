@@ -1,7 +1,10 @@
-.root {
-    @apply bg-purple rounded-[50px] hover:bg-[#7630F7] text-white px-6 py-3
-}
 
-.inner {
-    @apply whitespace-nowrap
+.bg-purple{
+    background-color: #4B0082;
 }
+    .root {
+        @apply bg-purple rounded-[50px] hover:bg-[#7630F7] text-white px-6 py-3
+    }    
+    .inner {
+        @apply whitespace-nowrap
+    }
