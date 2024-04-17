@@ -1,3 +1,69 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.text-shadow{
+    box-shadow: 3px 3px 0px 0px #bcbcbd
+}
+
+.border-shadow{
+border-image: linear-gradient(#fff, #5751E1, #4B0082)  20 ;
+border-right: 3px solid; 
+}
+.rotated-text {
+  transform: rotate(180deg);
+  position: relative;
+  width: 520px;
+  height:300px;
+  margin: 0 auto;
+  font-size: 20px;
+}
+
+.estrellas {
+  position: relative;
+  width: 520px;
+  height:200px;
+  margin: 0 auto;
+  font-size: 20px;
+}
+.estrellas span {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 70px;
+  height: 200px;
+  margin-left: -35px;
+  line-height: 530px; /* height*2 - font-size */
+  text-align: center;
+  transform-origin: top center;
+}
+.estrellas span:nth-of-type(1)  {
+  transform: rotate(75deg);
+}
+.estrellas span:nth-of-type(2)  {
+  transform: rotate(50deg);
+}
+.estrellas span:nth-of-type(3)  {
+  transform: rotate(25deg);
+}
+.estrellas span:nth-of-type(4)  {
+  transform: rotate(0deg);
+}
+.estrellas span:nth-of-type(5)  {
+  transform: rotate(-25deg);
+}
+.estrellas span:nth-of-type(6)  {
+  transform: rotate(-50deg);
+}
+.estrellas span:nth-of-type(7)  {
+  transform: rotate(-75deg);
+}
+/* Reverse mode */
+.inverso {
+  font-weight: bold;
+}
+.inverso span {
+  line-height: 70px;
+  transform-origin: bottom center;
+
+}

@@ -7,14 +7,23 @@ import HeroText from "@/components/icons/hero-text";
 import Lifestyle from "@/components/icons/lifestyle";
 import Management from "@/components/icons/management";
 import Marketing from "@/components/icons/marketing";
-import { Avatar, Button } from "@mantine/core";
+import { Accordion, Avatar, Button, TextInput } from "@mantine/core";
 import { ArrowLeft, ArrowRight } from "iconsax-react";
 import Image from "next/image";
 import { MdOutlineArrowForwardIos } from "react-icons/md";
 import classes from "@/components/home/signup.module.css";
 import MentorText from "@/components/home/mentor-text";
 import { Carousel } from "@mantine/carousel";
-import { FaStar } from "react-icons/fa";
+import {
+  FaFacebookF,
+  FaLinkedinIn,
+  FaStar,
+  FaTwitter,
+  FaWhatsapp,
+  FaYoutube,
+} from "react-icons/fa";
+import clsx from "clsx";
+import Curve from "@/components/home/curve";
 
 const items = [
   {
@@ -68,6 +77,12 @@ const carouselList = [
     skill: " Development",
     details: "Learning JavaScript With Imagination",
   },
+  {
+    name: "Ngozi Onwuka",
+    img: "expertise1.svg",
+    skill: " Development",
+    details: "Learning JavaScript With Imagination",
+  },
 ];
 
 const mentorList = [
@@ -75,6 +90,66 @@ const mentorList = [
   "Access Learning Resources",
   "Flexible Schedules",
 ];
+
+const skilledMentors = [
+  {
+    name: "Olamide Adeyemi",
+    skill: "UX Design Lead",
+    img: "/instructor1.svg",
+    id: 1,
+  },
+  {
+    name: "Olivia Mia",
+    skill: "Web Design",
+    img: "/instructor2.svg",
+    id: 2,
+  },
+  {
+    name: "Ngozi Onwuka",
+    skill: "Digital Marketing",
+    img: "/instructor3.svg",
+    id: 3,
+  },
+  {
+    name: "Mohammed Ali",
+    skill: "Web Development",
+    img: "/instructor4.svg",
+    id: 4,
+  },
+];
+
+const statistics = [
+  {
+    name: "10K +",
+    text: "Active Menteees",
+  },
+
+  {
+    name: "60K +",
+    text: "Resources",
+  },
+  {
+    name: "3K ",
+    text: "Mentors",
+  },
+  {
+    name: "3",
+    text: "Active Months",
+  },
+];
+
+const styles = {
+  root: {
+    width: "100%",
+  },
+  input: {
+    height: "50px",
+    borderRadius: "50px",
+    border: "0.93px solid #4B0082",
+    width: "100%",
+    paddingLeft: "14px",
+  },
+};
 export default function Home() {
   return (
     <section>
@@ -253,7 +328,7 @@ export default function Home() {
       </section>
 
       {/* Explore Section */}
-      <section className=" bg-[#85608833] h-[801px]  px-[100px] flex flex-col gap-[62px] py-[50px] items-center  mb-2">
+      <section className=" bg-[#85608833] h-[801px]  px-[100px] flex flex-col gap-[62px] py-[50px] items-center  mb-[21px]">
         <div className=" flex flex-col gap-[18px] items-center">
           <span className="rounded-[30px] bg-[#EFEEFE] px-4 py-[2px] font-medium text-base leading-[25.92px] text-[#4B0082]">
             Top Class Courses
@@ -263,98 +338,96 @@ export default function Home() {
             Explore Our Lessons and Webninars
           </h3>
         </div>
-        <section>
-          {/* <div className=" p-[clamp(12px,1.8vw,26px)] flex flex-col gap-[clamp(10px,1.4vw,20px)] bg-white">
-            <figure className=" w-[clamp(200px,19vw,278px)] ">
-              <Image
-                src="/expertise1.svg"
-                width={20}
-                height={20}
-                alt="laravel img"
-                className="w-full "
-              />
-            </figure>
-            <section className=" flex flex-col gap-[22px] ">
-              <div className=" flex justify-between items-center">
-                <article className=" py-[7px] px-[13px] bg-[#EFEFF2] rounded-[50px]">
-                  <p className=" text-[#161439] text-[13px] font-medium">
-                    Development
-                  </p>
-                </article>
-                <article className=" flex gap-1 items-center ">
-                  <FaStar size={14} color="#F8BC24" />
-                  <p>(4.5 Reviews)</p>
-                </article>
-              </div>
-              <div className=" flex flex-col gap-[23px] ">
-                <section className=" flex flex-col gap[14px]">
-                  <h3>Learning JavaScript With Imagination</h3>
-                  <p>
-                    By <span>Ngozi Onwuka</span>
-                  </p>
-                </section>
-                <Button
-                  styles={{
-                    root: {
-                      background: "#4B0082",
-                      height: "49px",
-                      paddingInline: "32px",
-                      borderRadius: "50px",
-                      width: "fit-content",
-                    },
-                  }}
-                >
-                  <span className="flex items-center text-base font-semibold leading-[17.92px] text-white gap-1">
-                    Enroll Now
-                    <ArrowRight size={14} color="white" />
-                  </span>
-                </Button>
-                <section className=" flex justify-between ">
-                  <p>12,000 NGN</p>
-                </section>
-              </div>
-            </section>
-          </div> */}
+        <section className=" ">
           <Carousel
             withIndicators
             // height={200}
-            slideSize={{ base: "100%", sm: "50%", md: "33.333333%" }}
+            slideSize={{ base: "100%", sm: "50%", md: "20.333333%" }}
             slideGap={{ base: 0, sm: "md" }}
             loop
+            // slidesToScroll={4}
             align="start"
           >
             {carouselList.map((item) => (
+              <Carousel.Slide>
+                <div className=" p-[clamp(12px,1.8vw,26px)] flex flex-col gap-[clamp(10px,1.4vw,20px)] bg-white">
+                  <figure className=" w-[clamp(200px,19vw,278px)] ">
+                    <Image
+                      src="/expertise1.svg"
+                      width={20}
+                      height={20}
+                      alt="laravel img"
+                      className="w-full "
+                    />
+                  </figure>
+                  <section className=" flex flex-col gap-[22px] ">
+                    <div className=" flex justify-between items-center">
+                      <article className=" py-[7px] px-[13px] bg-[#EFEFF2] rounded-[50px]">
+                        <p className=" text-[#161439] text-[13px] font-medium">
+                          Development
+                        </p>
+                      </article>
+                      <article className=" flex gap-1 items-center ">
+                        <FaStar size={14} color="#F8BC24" />
+                        <p>(4.5 Reviews)</p>
+                      </article>
+                    </div>
+                    <div className=" flex flex-col gap-[23px] ">
+                      <section className=" flex flex-col gap[14px]">
+                        <h3>Learning JavaScript With Imagination</h3>
+                        <p>
+                          By <span>Ngozi Onwuka</span>
+                        </p>
+                      </section>
+                      <Button
+                        styles={{
+                          root: {
+                            background: "#4B0082",
+                            height: "49px",
+                            paddingInline: "32px",
+                            borderRadius: "50px",
+                            width: "fit-content",
+                          },
+                        }}
+                      >
+                        <span className="flex items-center text-base font-semibold leading-[17.92px] text-white gap-1">
+                          Enroll Now
+                          <ArrowRight size={14} color="white" />
+                        </span>
+                      </Button>
+                      <section className=" flex justify-between ">
+                        <p>12,000 NGN</p>
+                      </section>
+                    </div>
+                  </section>
+                </div>
+              </Carousel.Slide>
+            ))}
+          </Carousel>
+        </section>
+      </section>
 
-            <Carousel.Slide>
- <div className=" p-[clamp(12px,1.8vw,26px)] flex flex-col gap-[clamp(10px,1.4vw,20px)] bg-white">
-            <figure className=" w-[clamp(200px,19vw,278px)] ">
-              <Image
-                src="/expertise1.svg"
-                width={20}
-                height={20}
-                alt="laravel img"
-                className="w-full "
-              />
-            </figure>
-            <section className=" flex flex-col gap-[22px] ">
-              <div className=" flex justify-between items-center">
-                <article className=" py-[7px] px-[13px] bg-[#EFEFF2] rounded-[50px]">
-                  <p className=" text-[#161439] text-[13px] font-medium">
-                    Development
-                  </p>
-                </article>
-                <article className=" flex gap-1 items-center ">
-                  <FaStar size={14} color="#F8BC24" />
-                  <p>(4.5 Reviews)</p>
-                </article>
-              </div>
-              <div className=" flex flex-col gap-[23px] ">
-                <section className=" flex flex-col gap[14px]">
-                  <h3>Learning JavaScript With Imagination</h3>
-                  <p>
-                    By <span>Ngozi Onwuka</span>
-                  </p>
-                </section>
+      {/* Subscribe Now Section */}
+      <section className="h-[378px] bg-[#85608880]">
+        <div className="flex max-w-[1400px] items-center  justify-between pl-[60px] pt-[15px]">
+          <Image
+            src="/subscribe.svg"
+            width={600}
+            height={600}
+            className="h-full w-[380px] object-cover"
+            alt="subscribe"
+          />
+
+          <section className=" flex items-center">
+            <div className=" flex flex-col gap-[25px]">
+              <h2 className=" w-[547px] text-[36px] text-white font-normal">
+                Want to stay{" "}
+                <span className=" text-[36px] font-bold">informed </span>
+                about Our
+                <span className="text-[36px] font-bold"> Offers?</span>
+              </h2>
+              <article className=" flex gap-[10px] ">
+                <TextInput placeholder="Type your e-mail" styles={styles} />
                 <Button
                   styles={{
                     root: {
@@ -362,28 +435,187 @@ export default function Home() {
                       height: "49px",
                       paddingInline: "32px",
                       borderRadius: "50px",
-                      width: "fit-content",
+                      width: " fit-content",
                     },
                   }}
                 >
                   <span className="flex items-center text-base font-semibold leading-[17.92px] text-white gap-1">
-                    Enroll Now
-                    <ArrowRight size={14} color="white" />
+                    Subscribe Now
                   </span>
                 </Button>
-                <section className=" flex justify-between ">
-                  <p>12,000 NGN</p>
-                </section>
-              </div>
-            </section>
-          </div>
+              </article>
+            </div>
 
-            </Carousel.Slide>
-            ))}
-            {/* <Carousel.Slide>2</Carousel.Slide>
-            <Carousel.Slide>3</Carousel.Slide> */}
-          
-          </Carousel>
+            <Image
+              src="/illustration.png"
+              width={600}
+              height={600}
+              className="h-full w-[380px] object-cover"
+              alt="illustration"
+            />
+          </section>
+        </div>
+      </section>
+
+      {/* Skilled Mentors Section */}
+      <section className=" flex justify-center px-[clamp(50px,7vw,100px)] py-[clamp(50px,7vw,100px)] items-center">
+        <div className=" flex flex-col gap-[18px] flex-1 ">
+          <span className="rounded-[30px] bg-[#EFEEFE] px-4 py-[2px] font-medium text-base leading-[25.92px] text-[#4B0082] w-fit">
+            Skilled Mentors
+          </span>
+
+          <section className=" flex flex-col gap-[16px]">
+            <h3 className=" text-[#161439] font-semibold text-[36px] w-[348px]">
+              Our Top Class Mentors
+            </h3>
+            <article className=" flex flex-col gap-[12px] ">
+              <p className="w-[382px] text-[#6D6C80] text-normal text-[16px]">
+                All our mentors are vetted and handpicked based on
+                qualifications to offer only the best. Check each mentor’s
+                profile, send a request and schedule a session.
+              </p>
+            </article>
+            <Button
+              styles={{
+                root: {
+                  background: "#4B0082",
+                  height: "49px",
+                  paddingInline: "32px",
+                  borderRadius: "50px",
+                  width: "fit-content",
+                },
+              }}
+            >
+              <span className="flex items-center text-base font-semibold leading-[17.92px] text-white gap-1">
+                See All Mentors
+                <ArrowRight size={14} color="white" />
+              </span>
+            </Button>
+          </section>
+        </div>
+
+        <section className=" grid grid-cols-2 gap-[35px] ">
+          {skilledMentors.map((item) => (
+            <div key={item.id} className=" flex gap-[15px] items-center">
+              <figure className="w-[235px] min-w-[166px] ">
+                <Image
+                  src={item.img}
+                  alt="mentors-images"
+                  width={100}
+                  height={100}
+                  className=" w-full"
+                />
+              </figure>
+              <div className=" flex flex-col gap-[15px] ">
+                <section className=" flex flex-col gap-[12px]">
+                  <article className=" flex flex-col gap-2">
+                    <h4 className=" text-[#161439] font-semibold text-[20px]">
+                      {item.name}
+                    </h4>
+                    <p className=" text-[16px] text-lilac font-normal">
+                      {item.skill}
+                    </p>
+                  </article>
+                  <article className=" flex gap-[5px] items-center">
+                    <FaStar color="#F8BC24" />
+
+                    <p className="text-[15px] font-normal text-[#7F7E97]">
+                      (4.8 Ratings)
+                    </p>
+                  </article>
+                </section>
+                <div className=" flex gap-2 items-center">
+                  <article className=" py-[8px] px-[11px] w-[36px] h-[36px] rounded-full border-[#9292B4] border items-center flex text-shadow">
+                    <FaFacebookF color="#7F7E97" size={20} />
+                  </article>
+                  <article className=" py-[8px] px-[11px] w-[36px] h-[36px] rounded-full border-[#9292B4] border  items-center flex text-shadow">
+                    <FaTwitter color="#7F7E97" size={20} />
+                  </article>
+                  <article className=" py-[8px] px-[11px] w-[36px] h-[36px] rounded-full border-[#9292B4] border  items-center flex text-shadow">
+                    <FaWhatsapp color="#7F7E97" size={20} />
+                  </article>
+                  <article className=" py-[8px] px-[11px] w-[36px] h-[36px] rounded-full border-[#9292B4] border  items-center flex text-shadow">
+                    <FaLinkedinIn color="#7F7E97" size={20} />
+                  </article>
+                  <article className=" py-[8px] px-[11px] w-[36px] h-[36px] rounded-full border-[#9292B4] border  items-center flex text-shadow">
+                    <FaYoutube color="#7F7E97" size={20} />
+                  </article>
+                </div>
+              </div>
+            </div>
+          ))}
+        </section>
+      </section>
+
+      {/* Mentorship Section */}
+      <section className=" flex flex-col gap-[92px]  bg-[#F7F7F9] px-[clamp(50px,7vw,100px)] pb-[clamp(25px,3.4vw,50px)] ">
+        <div className=" flex py-[clamp(25px,3.7vw,54px)]   px-[clamp(40px,5.3vw,80px)]  bg-purple justify-between rounded-[40px]  ">
+          {statistics.map((item) => (
+            <article
+              className={clsx(
+                item.text !== "Active Months"
+                  ? "border-shadow pr-[80px]"
+                  : null,
+                "flex flex-col gap-2 "
+              )}
+            >
+              <h4 className=" text-white font-semibold text-[50px]">
+                {item.name}
+              </h4>
+              <p className=" text-[15px] text-white font-medium">{item.text}</p>
+            </article>
+          ))}
+        </div>
+
+        <section className=" flex gap-[70px] mx-auto max-w-[1440px] ">
+          {/* <div className=" flex flex-col"> */}
+
+          {/* <p className=" rotated-text">* Connect* with *mentors* who *inspire*</p> */}
+
+          {/* <Curve/> */}
+          <figure className=" w-[400px]  ">
+            <Image
+              src="mentorship.svg"
+              alt="mentorship-image"
+              width={20}
+              height={20}
+              className=" w-full"
+            />
+          </figure>
+          {/* </div> */}
+
+          <section className=" flex flex-col gap-[76px] flex-1 overflow-auto">
+            <div className=" flex flex-col gap-[13p]">
+              <span className="rounded-[30px] bg-[#EFEEFE] px-4 py-[2px] font-medium text-base leading-[25.92px] text-[#4B0082] w-fit">
+                FAQs
+              </span>
+              <h4 className=" text-[36px] text-[#161439] font-semibold">
+                Mentorship made Simple
+              </h4>
+            </div>
+
+      
+
+
+
+    <Accordion defaultValue="customization">
+      <Accordion.Item value="customization">
+        <Accordion.Control>Customization</Accordion.Control>
+        <Accordion.Panel>Colors, fonts, shadows and many other parts are customizable to fit your design needs</Accordion.Panel>
+      </Accordion.Item>
+
+      <Accordion.Item value="flexibility">
+        <Accordion.Control>Flexibility</Accordion.Control>
+        <Accordion.Panel>Configure components appearance and behavior with vast amount of settings or overwrite any part of component styles</Accordion.Panel>
+      </Accordion.Item>
+
+      <Accordion.Item value="focus-ring">
+        <Accordion.Control>No annoying focus ring</Accordion.Control>
+        <Accordion.Panel>With new :focus-visible pseudo-class focus ring appears only when user navigates with keyboard</Accordion.Panel>
+      </Accordion.Item>
+    </Accordion>
+
+          </section>
         </section>
       </section>
     </section>
