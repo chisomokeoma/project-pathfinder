@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Inter, Poppins } from "next/font/google";
 import "./globals.css";
+import "@mantine/core/styles.css";
+import "@mantine/carousel/styles.css";
 import {
   FaFacebookF,
   FaLinkedinIn,
@@ -70,7 +72,6 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
- 
   return (
     <html lang="en">
       <head>
@@ -145,12 +146,15 @@ export default function RootLayout({
                   </figure>
 
                   <div className=" flex justify-between gap-[27px]">
-                    {navArray.map((item, idx) => (
-                      <Link key={idx}
+                    {navArray.map((item, index) => (
+                      <Link
+                        key={index}
                         href={item.link}
                         className=" flex gap-[4px] items-center cursor-pointer hover:text-purple"
                       >
-                        <p className=" text-[#161439] font-medium text-base ">{item.name}</p>
+                        <p className=" text-[#161439] font-medium text-base ">
+                          {item.name}
+                        </p>
                         <span className="pt-3  ">
                           <IoIosArrowDown />
                         </span>
@@ -204,9 +208,19 @@ export default function RootLayout({
                         </article>
                       </div>
                     </article>
-                      <Link href="/login">
-                    <Button classNames={classes}  >Log in</Button>
-                      </Link>
+                    <Link href="/create-account">
+                      <Button
+                        classNames={classes}
+                        styles={{
+                          root: {
+                            backgroundColor: "#4B0082",
+                            borderRadius: "50px",
+                          },
+                        }}
+                      >
+                        Log in
+                      </Button>
+                    </Link>
                   </div>
                 </section>
               </div>
