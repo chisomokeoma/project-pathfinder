@@ -24,6 +24,8 @@ import {
 } from "react-icons/fa";
 import clsx from "clsx";
 import Curve from "@/components/home/curve";
+import { CiCalendar } from "react-icons/ci";
+import { CgProfile } from "react-icons/cg";
 
 const items = [
   {
@@ -61,27 +63,27 @@ const items = [
 const carouselList = [
   {
     name: "Ngozi Onwuka",
-    img: "expertise1.svg",
+    img: "/expertise1.svg",
     skill: " Development",
     details: "Learning JavaScript With Imagination",
   },
   {
-    name: "Ngozi Onwuka",
-    img: "expertise1.svg",
-    skill: " Development",
-    details: "Learning JavaScript With Imagination",
+    name: "Stella Frank",
+    img: "/crush.svg",
+    skill: " Design",
+    details: "The Complete Graphic Design for Beginners",
   },
   {
-    name: "Ngozi Onwuka",
-    img: "expertise1.svg",
-    skill: " Development",
-    details: "Learning JavaScript With Imagination",
+    name: "Quenneth Yussuf",
+    img: "/course.svg",
+    skill: " Marketing",
+    details: "Learning Digital Marketing on Facebook",
   },
   {
-    name: "Ngozi Onwuka",
-    img: "expertise1.svg",
-    skill: " Development",
-    details: "Learning JavaScript With Imagination",
+    name: "Sonia Onwuka",
+    img: "/pro.svg",
+    skill: " Business",
+    details: "Financial Analyst Training & Investing Course",
   },
 ];
 
@@ -135,6 +137,49 @@ const statistics = [
   {
     name: "3",
     text: "Active Months",
+  },
+];
+
+const communityList = [
+  {
+    image: "/learn-expert.svg",
+    name: "Active Menteees",
+  },
+
+  {
+    image: "/gain-knowledge.svg",
+    name: "Resources",
+  },
+  {
+    image: "/certificate.svg",
+    name: "Mentors",
+  },
+  {
+    image: "/network.svg",
+    name: "Active Months",
+  },
+];
+
+const blogs = [
+  {
+    img: "/wellness.svg",
+    datails: "How To Become idiculously Self-Aware In 20 Minutes",
+    tag: "Wellness",
+  },
+  {
+    img: "/ui-ux.svg",
+    datails: "Get Started With UI Design With Tips To Speed",
+    tag: "UI/UX",
+  },
+  {
+    img: "/career.svg",
+    datails: " How to Write the Best Cv to Land that Next Job",
+    tag: "Career",
+  },
+  {
+    img: "/leadership.svg",
+    datails: "Essential Leadership and Communication Skills",
+    tag: "Leadership",
   },
 ];
 
@@ -350,10 +395,10 @@ export default function Home() {
           >
             {carouselList.map((item) => (
               <Carousel.Slide>
-                <div className=" p-[clamp(12px,1.8vw,26px)] flex flex-col gap-[clamp(10px,1.4vw,20px)] bg-white">
+                <div className=" p-[clamp(12px,1.8vw,26px)] flex flex-col gap-[clamp(10px,1.4vw,20px)] bg-white rounded-lg">
                   <figure className=" w-[clamp(200px,19vw,278px)] ">
                     <Image
-                      src="/expertise1.svg"
+                      src={item.img}
                       width={20}
                       height={20}
                       alt="laravel img"
@@ -364,39 +409,49 @@ export default function Home() {
                     <div className=" flex justify-between items-center">
                       <article className=" py-[7px] px-[13px] bg-[#EFEFF2] rounded-[50px]">
                         <p className=" text-[#161439] text-[13px] font-medium">
-                          Development
+                          {item?.skill}
                         </p>
                       </article>
                       <article className=" flex gap-1 items-center ">
                         <FaStar size={14} color="#F8BC24" />
-                        <p>(4.5 Reviews)</p>
+                        <p className=" text-[#7F7E97] font-normal text-[14px]">
+                          (4.5 Reviews)
+                        </p>
                       </article>
                     </div>
                     <div className=" flex flex-col gap-[23px] ">
                       <section className=" flex flex-col gap[14px]">
-                        <h3>Learning JavaScript With Imagination</h3>
-                        <p>
-                          By <span>Ngozi Onwuka</span>
+                        <h3 className=" text-[18px] font-semibold">
+                          {item.details}
+                        </h3>
+                        <p className=" text-[#6D6C80] text-[15px] font-normal">
+                          By{" "}
+                          <span className=" text-[15px] font-normal text-[#161439]">
+                            {item.name}
+                          </span>
                         </p>
                       </section>
-                      <Button
-                        styles={{
-                          root: {
-                            background: "#4B0082",
-                            height: "49px",
-                            paddingInline: "32px",
-                            borderRadius: "50px",
-                            width: "fit-content",
-                          },
-                        }}
-                      >
-                        <span className="flex items-center text-base font-semibold leading-[17.92px] text-white gap-1">
-                          Enroll Now
-                          <ArrowRight size={14} color="white" />
-                        </span>
-                      </Button>
-                      <section className=" flex justify-between ">
-                        <p>12,000 NGN</p>
+
+                      <section className=" flex gap-[30px] items-center ">
+                        <Button
+                          styles={{
+                            root: {
+                              background: "#4B0082",
+                              height: "49px",
+                              paddingInline: "32px",
+                              borderRadius: "50px",
+                              width: "fit-content",
+                            },
+                          }}
+                        >
+                          <span className="flex items-center text-base font-semibold leading-[17.92px] text-white gap-1">
+                            Enroll Now
+                            <ArrowRight size={14} color="white" />
+                          </span>
+                        </Button>
+                        <p className=" text-[#5751E1] font-bold text-[20px] whitespace-nowrap">
+                          12,000 NGN
+                        </p>
                       </section>
                     </div>
                   </section>
@@ -483,6 +538,9 @@ export default function Home() {
                   paddingInline: "32px",
                   borderRadius: "50px",
                   width: "fit-content",
+                  "&:hover": {
+                    backgroundColor: "#7630F7",
+                  },
                 },
               }}
             >
@@ -548,8 +606,8 @@ export default function Home() {
       </section>
 
       {/* Mentorship Section */}
-      <section className=" flex flex-col gap-[92px]  bg-[#F7F7F9] px-[clamp(50px,7vw,100px)] pb-[clamp(25px,3.4vw,50px)] ">
-        <div className=" flex py-[clamp(25px,3.7vw,54px)]   px-[clamp(40px,5.3vw,80px)]  bg-purple justify-between rounded-[40px]  ">
+      <section className=" flex flex-col gap-[92px]  bg-[#F7F7F9] px-[clamp(50px,7vw,100px)] pb-[clamp(25px,3.4vw,50px)] background-shadow ">
+        <div className=" flex py-[clamp(25px,3.7vw,54px)]   px-[clamp(40px,5.3vw,80px)]  bg-purple justify-between rounded-[40px] -mt-[4rem]  ">
           {statistics.map((item) => (
             <article
               className={clsx(
@@ -567,13 +625,13 @@ export default function Home() {
           ))}
         </div>
 
-        <section className=" flex gap-[70px] mx-auto max-w-[1440px] ">
+        <section className=" flex gap-[70px] mx-auto max-w-[1440px] items-center ">
           {/* <div className=" flex flex-col"> */}
 
           {/* <p className=" rotated-text">* Connect* with *mentors* who *inspire*</p> */}
 
           {/* <Curve/> */}
-          <figure className=" w-[400px]  ">
+          <figure className=" w-[clamp(275px,27vw,400px)] min-w-[275px] ">
             <Image
               src="mentorship.svg"
               alt="mentorship-image"
@@ -584,8 +642,8 @@ export default function Home() {
           </figure>
           {/* </div> */}
 
-          <section className=" flex flex-col gap-[76px] flex-1 overflow-auto">
-            <div className=" flex flex-col gap-[13p]">
+          <section className=" flex flex-col gap-[40px] flex-1 overflow-auto ">
+            <div className=" flex flex-col gap-[13px]">
               <span className="rounded-[30px] bg-[#EFEEFE] px-4 py-[2px] font-medium text-base leading-[25.92px] text-[#4B0082] w-fit">
                 FAQs
               </span>
@@ -594,28 +652,216 @@ export default function Home() {
               </h4>
             </div>
 
-      
+            <Accordion
+              defaultValue="customization"
+              styles={{
+                root: {
+                  width: "550px",
+                },
+                label: {
+                  color: "#4B0082",
+                  fontSize: "20px",
+                  fontWeight: 500,
+                },
+                content: {
+                  color: "#1C1A4A",
+                  fontSize: "16px",
+                  fontWeight: 400,
+                },
+              }}
+            >
+              <Accordion.Item value="customization">
+                <Accordion.Control>
+                  What is PathFinders all about?
+                </Accordion.Control>
+                <Accordion.Panel>
+                  PathFinders is a platform that connects mentees with mentors
+                  from diverse industrious and also offers learning resources to
+                  develop an individual’s skills.
+                </Accordion.Panel>
+              </Accordion.Item>
 
+              <Accordion.Item value="flexibility">
+                <Accordion.Control>Why choose us?</Accordion.Control>
+                <Accordion.Panel>
+                  Configure components appearance and behavior with vast amount
+                  of settings or overwrite any part of component styles
+                </Accordion.Panel>
+              </Accordion.Item>
 
-
-    <Accordion defaultValue="customization">
-      <Accordion.Item value="customization">
-        <Accordion.Control>Customization</Accordion.Control>
-        <Accordion.Panel>Colors, fonts, shadows and many other parts are customizable to fit your design needs</Accordion.Panel>
-      </Accordion.Item>
-
-      <Accordion.Item value="flexibility">
-        <Accordion.Control>Flexibility</Accordion.Control>
-        <Accordion.Panel>Configure components appearance and behavior with vast amount of settings or overwrite any part of component styles</Accordion.Panel>
-      </Accordion.Item>
-
-      <Accordion.Item value="focus-ring">
-        <Accordion.Control>No annoying focus ring</Accordion.Control>
-        <Accordion.Panel>With new :focus-visible pseudo-class focus ring appears only when user navigates with keyboard</Accordion.Panel>
-      </Accordion.Item>
-    </Accordion>
-
+              <Accordion.Item value="flexibility">
+                <Accordion.Control>Why choose us?</Accordion.Control>
+                <Accordion.Panel>
+                  Configure components appearance and behavior with vast amount
+                  of settings or overwrite any part of component styles
+                </Accordion.Panel>
+              </Accordion.Item>
+              <Accordion.Item value="focus-ring">
+                <Accordion.Control>
+                  How we provide these services?
+                </Accordion.Control>
+                <Accordion.Panel>
+                  With new :focus-visible pseudo-class focus ring appears only
+                  when user navigates with keyboard
+                </Accordion.Panel>
+              </Accordion.Item>
+            </Accordion>
           </section>
+        </section>
+      </section>
+      {/* Commmunity Section */}
+      <section className=" flex px-[clamp(50px,7vw,100px)] pt-[clamp(50px,7vw,100px)] pb-[29px] flex-col justify-between bg-purple mx-auto items-center gap-[24px]">
+        <h4 className=" text-[36px] font-semibold text-white pb-[40px]">
+          Join Our Community Today!
+        </h4>
+        <div className="gap-[clamp(35px,4.8vw,70px)] flex items-center ">
+          {communityList?.map((ele, idx) => (
+            <article className=" flex flex-col gap-[24px]" key={idx}>
+              <figure className="w-[94px]  ">
+                <Image
+                  src={ele.image}
+                  alt="mentors-images"
+                  width={100}
+                  height={100}
+                  className=" w-full"
+                />
+              </figure>
+              <p className=" text-[20px] text-white font-semibold">
+                {ele.name}
+              </p>
+            </article>
+          ))}
+        </div>
+
+        <div className=" flex gap-[clamp(15px,2vw,30px)] pt-[40px]">
+          <section className=" flex gap-[18px] bg-white rounded-[16px]">
+            <figure
+              className="w-[clamp(95px,13vw,190px)] bg-cover bg-no-repeat  "
+              style={{
+                backgroundImage: 'url("/mentorr-apply.svg")',
+              }}
+            ></figure>
+
+            <div className=" flex flex-col gap-[5px] py-[clamp(22px,3vw,44px)]">
+              <h3 className=" font-semibold text-[#161439] text-[28px]">
+                Become a Mentor
+              </h3>
+              <p className=" w-[368px] text-base font-normal text-[#6D6C80] pb-2">
+                Take the step to mentor people and make global impact while also
+                enhancing your career
+              </p>
+              <Button
+                styles={{
+                  root: {
+                    background: "#4B0082",
+                    height: "49px",
+                    paddingInline: "32px",
+                    borderRadius: "50px",
+                    width: "fit-content",
+                    "&:hover": {
+                      backgroundColor: "#7630F7",
+                    },
+                  },
+                }}
+              >
+                <span className="flex items-center text-base font-semibold leading-[17.92px] text-white gap-1">
+                  Apply Now
+                  <ArrowRight size={14} color="white" />
+                </span>
+              </Button>
+            </div>
+          </section>
+
+          <section className=" flex gap-[18px] bg-white rounded-[16px]">
+            <figure
+              className="w-[clamp(95px,13vw,190px)] bg-cover bg-no-repeat  "
+              style={{
+                backgroundImage: 'url("/menteee-apply.svg")',
+              }}
+            ></figure>
+
+            <div className=" flex flex-col gap-[5px] py-[clamp(22px,3vw,44px)]">
+              <h3 className=" font-semibold text-[#161439] text-[28px]">
+                Become a Mentee
+              </h3>
+              <p className=" w-[340px] text-base font-normal text-[#6D6C80] pb-2  pr-1">
+                Join millions of people from around the world to seek guidance
+                and grow together.
+              </p>
+              <Button
+                styles={{
+                  root: {
+                    background: "#4B0082",
+                    height: "49px",
+                    paddingInline: "32px",
+                    borderRadius: "50px",
+                    width: "fit-content",
+                    "&:hover": {
+                      backgroundColor: "#7630F7",
+                    },
+                  },
+                }}
+              >
+                <span className="flex items-center text-base font-semibold leading-[17.92px] text-white gap-1">
+                  Apply Now
+                  <ArrowRight size={14} color="white" />
+                </span>
+              </Button>
+            </div>
+          </section>
+        </div>
+      </section>
+
+      {/* Blogs Section         */}
+
+      <section className=" background-shadow   px-[100px] flex flex-col gap-[62px] py-[50px] items-center  mb-[21px]">
+        <div className=" flex flex-col gap-[18px] items-center">
+          <span className="rounded-[30px] bg-[#EFEEFE] px-4 py-[2px] font-medium text-base leading-[25.92px] text-[#4B0082]">
+            News & Blogs{" "}
+          </span>
+
+          <h3 className=" font-semibold text-[36px] text-[#161439]">
+            Our Latest News Feed
+          </h3>
+        </div>
+        <section className=" flex gap-[20px] ">
+          {blogs.map((item) => (
+            <div className=" px-[clamp(12px,1.8vw,26px)] py-[21px] flex flex-col gap-[clamp(11px,1.8vw,24px)] border-[#6D6C80] border rounded-[10px] bg-white items-center">
+              <article className=" relative">
+                <figure className=" w-[clamp(200px,19vw,278px)] ">
+                  <Image
+                    src={item.img}
+                    width={20}
+                    height={20}
+                    alt="laravel img"
+                    className="w-full "
+                  />
+                </figure>
+                <span className="rounded-[30px] bg-[#4B0082] px-[14px] py-[8px] font-medium text-[13px] leading-[25.92px] text-[#fff] absolute top-3 left-2">
+                  {item.tag}
+                </span>
+              </article>
+              <section className=" flex flex-col gap-[22px] flex-1 ">
+                <div className=" flex gap-[14px]  items-center">
+                  <article className=" flex gap-[3px] items-center">
+                    <CiCalendar size={20} color="#4B0082" />
+                    <p className=" text-[#161439] text-[13px] font-medium">
+                      20 July, 2024
+                    </p>
+                  </article>
+                  <article className=" flex gap-1 items-center ">
+                    <CgProfile size={20} color="#4B0082" />
+                    <p className=" text-[#6D6C80] text-[14px] font-medium">
+                      By Admin
+                    </p>
+                  </article>
+                </div>
+                <p className=" text-[#161439] font-bold text-[20px]">
+                  {item?.datails}
+                </p>
+              </section>
+            </div>
+          ))}
         </section>
       </section>
     </section>
