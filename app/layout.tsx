@@ -79,7 +79,7 @@ export default function RootLayout({
       <body className={poppins.className}>
         <MantineProvider>
           <main>
-            <header className=" py-[11px] bg-[#4B0082] text-white">
+            <header className=" py-[11px] bg-purple text-white">
               <div className="flex max-w-[1400px] mx-auto px-4 justify-between items-center">
                 <section className=" flex items-center gap-[clamp(0.9rem,2vw,1.8rem)] ">
                   <div className=" flex  gap-[10px] items-center ">
@@ -212,7 +212,7 @@ export default function RootLayout({
               </div>
             </nav>
             {children}
-            <footer className="  bg-[#4B0082]  py-[37px]">
+            <footer className="  bg-purple  py-[37px]">
               <section className=" mx-auto flex justify-between px-4 max-w-[1400px]">
                 <div className=" flex flex-col gap-[13px]">
                   <figure className=" w-[clamp(2.7rem,4.4vw,4.4rem)] h-[clamp(2.7rem,4.4vw,4.4rem)]">
