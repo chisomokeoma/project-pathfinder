@@ -1,6 +1,6 @@
 
     .root {
-        @apply bg-purple rounded-[50px] hover:bg-purple text-white px-6 py-3
+        @apply bg-[#4B0082] rounded-[50px] hover:bg-[#4B0082] text-white px-6 py-3
     }    
     .inner {
         @apply whitespace-nowrap

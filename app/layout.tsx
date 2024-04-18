@@ -80,7 +80,7 @@ export default function RootLayout({
       <body className={poppins.className}>
         <MantineProvider>
           <main>
-            <header className=" py-[11px] bg-purple text-white">
+            <header className=" py-[11px] bg-[#4B0082] text-white">
               <div className="flex max-w-[1400px] mx-auto px-4 justify-between items-center">
                 <section className=" flex items-center gap-[clamp(0.9rem,2vw,1.8rem)] ">
                   <div className=" flex  gap-[10px] items-center ">
@@ -183,7 +183,7 @@ export default function RootLayout({
                       <div className=" gap-[14px] flex items-center ">
                         <article className=" relative">
                           <div
-                            className=" flex rounded-full bg-purple items-center justify-center p-[4px] w-[25px] h-[25px] absolute left-[21px] bottom-[29px]
+                            className=" flex rounded-full bg-[#4B0082] items-center justify-center p-[4px] w-[25px] h-[25px] absolute left-[21px] bottom-[29px]
     "
                           >
                             <p className=" text-white">0</p>
@@ -196,7 +196,7 @@ export default function RootLayout({
 
                         <article className=" relative">
                           <div
-                            className=" flex rounded-full bg-purple items-center justify-center p-[4px] w-[25px] h-[25px] absolute left-[21px] bottom-[29px]
+                            className=" flex rounded-full bg-[#4B0082] items-center justify-center p-[4px] w-[25px] h-[25px] absolute left-[21px] bottom-[29px]
     "
                           >
                             <p className=" text-white">0</p>
