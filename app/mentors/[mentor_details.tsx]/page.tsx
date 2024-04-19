@@ -3,6 +3,9 @@
 import Hero from "@/components/home/hero";
 import Image from "next/image";
 import { useRouter, useSearchParams } from "next/navigation";
+import { CgProfile } from "react-icons/cg";
+import { CiCalendar } from "react-icons/ci";
+import { FaStar } from "react-icons/fa";
 
 function Mentorsdetails({ params }: { params: { mentor_details: string } }) {
   const breadCrumbs = [{ text: "Home" }, { text: "Mentors" }];
@@ -34,7 +37,11 @@ function Mentorsdetails({ params }: { params: { mentor_details: string } }) {
               Digital Marketing
             </div>
             <div className="flex gap-[25px]">
-              <div className="text-[#ffff]">4.8 Ratings</div>
+                <article className=" flex gap-2 items-center">
+                <FaStar color="#F8BC24" />
+              <p className="text-[#ffff]">4.8 Ratings</p>
+                </article>
+        
               <div className="text-[#ffff] ">helloonwuka@gmail.com</div>
             </div>
             <div className="text-[#ffff] ">
@@ -130,7 +137,7 @@ function Mentorsdetails({ params }: { params: { mentor_details: string } }) {
         <div className="flex ml-[150px] gap-[20px]">
           <div className="w-[330px] h-[454px] rounded-[5px] border-2 shadow-xl flex flex-col">
             <div className="w-[278px] h-[190px] mx-auto mt-[10px]">
-              <img src="Ngoziresources1.svg/" alt="" />
+              <img src="/pro.svg/" alt="" />
             </div>
             <div className="flex gap-[85px] mx-auto mt-[10px]">
               <span className="w-[88.5px] h-[27px] bg-[#EFEFF2] text-[#161439] rounded-[15px] text-[14px] text-center">
@@ -160,7 +167,7 @@ function Mentorsdetails({ params }: { params: { mentor_details: string } }) {
           </div>
           <div className="w-[330px] h-[454.38px] rounded-[5px] flex border-2 shadow-xl flex-col">
             <div className="w-[278px] h-[190px] mx-auto mt-[10px]">
-              <img src="Ngoziresources2.png/" alt="" />
+              <img src="/crush.svg" alt="" />
             </div>
             <div className="flex mx-auto mt-[10px] gap-[85px]">
               <span className="w-[81.78px] h-[27px] text-[14px] bg-[#EFEFF2] text-[#161439] rounded-[15px] text-center">
@@ -191,17 +198,17 @@ function Mentorsdetails({ params }: { params: { mentor_details: string } }) {
           </div>
           <div className="flex w-[337.5px] h-[395px] shadow-xl border-2 rounded-[5px] flex-col">
             <div className="w-[285.5px] h-[224px] mx-auto mt-[10px]">
-              <img src="Ngoziresources3.svg/" alt="" />
+              <img src="/career.svg/" alt="" />
             </div>
             <div className="flex ml-[30px] mt-[20px] gap-[10px]">
               <span className="w-[20px] h-[20px] flex">
-                <img src="calender.svg/" alt="" />
+              <CiCalendar size={20} color="#4B0082" />
               </span>
               <span className="w-[91.4px] h-[14px] text-[14px] font-medium text-[#6D6C80]">
                 20 July, 2022
               </span>
               <span className="w-[20px] h-[20px]">
-                <img src="personicon.svg/" alt="" />
+              <CgProfile size={20} color="#4B0082" />
               </span>
               <span className="w-[16.81px] h-[14px] font-medium text-[14px] text-[#6D6C80]">
                 by
@@ -211,7 +218,7 @@ function Mentorsdetails({ params }: { params: { mentor_details: string } }) {
               </span>
             </div>
             <div className="w-[270.31px] h-[52px] font-semibold text-[20px] text-[#161439] mx-auto mt-[20px]">
-              {" "}
+              
               How to Write the Best CV <br />
               to Land that Next Job
             </div>

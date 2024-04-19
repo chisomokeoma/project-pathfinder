@@ -87,16 +87,16 @@ function Mentors() {
                   <div className="text-[16px] font-normal text-[#5751E1]">
                     {item?.skill}
                   </div>
-                  <article className=" flex gap-[5px] items-center">
+                  <article className=" flex gap-[5px] items-center ">
                   <FaStar color="#F8BC24" />
 
                   <p className="text-[15px] font-normal text-[#7F7E97]">
                     (4.8 Ratings)
                   </p>
                   </article>
-                  <div>
+                  <div className=" pt-[10px]">
                     <button
-                      className="bg-purple w-[202px] h-[50px] rounded-[20px] text-[16px] text-white"
+                      className="bg-purple w-[202px] h-[50px] rounded-[20px] text-[16px] text-white "
                       onClick={() => push(`/mentors/${item.id}`)}
                     >
                       Schedule Session
