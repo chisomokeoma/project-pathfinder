@@ -57,7 +57,7 @@ const poppins = Poppins({
 
 const navArray = [
   { name: "Home", link: "/" },
-  { name: "Resources", link: "" },
+  { name: "Resources", link: "/resources" },
   { name: "Mentors", link: "/mentors" },
   { name: "Blog", link: "" },
 ];

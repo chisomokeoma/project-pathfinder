@@ -16,9 +16,15 @@ const config = {
       screens: {
         "2xl": "1400px",
       },
-    },
+  },
     extend: {
       colors: {
+        purple: "#4B0082",
+        black: "#161439",
+        lilac: "#7630F7",
+        grey: "#64748B",
+        creame: "#E6EAEF",
+        violet: "#EFEEFE",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",

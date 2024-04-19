@@ -25,7 +25,7 @@ import { LuGraduationCap } from "react-icons/lu";
 import { Separator } from "@/components/ui/separator";
 import { MdArrowRightAlt } from "react-icons/md";
 
-const Demo = () => {
+const Demo = ({ params }: { params: { demo: string } }) => {
   const date = new Date();
   return (
     <React.Fragment>

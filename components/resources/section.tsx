@@ -7,16 +7,20 @@ import {
   SelectTrigger,
   SelectValue,
 } from "../ui/select";
-import { MdGridView } from "react-icons/md";
+import { MdArrowRightAlt, MdGridView } from "react-icons/md";
 import { TfiMenuAlt } from "react-icons/tfi";
 import { ResourcesData } from "./data";
 import Image from "next/image";
 import { Card, CardHeader, CardTitle } from "../ui/card";
 import { Badge } from "../ui/badge"
 import { TiStarFullOutline } from "react-icons/ti";
+import { Button } from "../ui/button";
+import { useRouter } from "next/navigation"
 export default function Sections() {
   const num = 100;
+  const { push, replace } = useRouter();
   return (
+   
     <React.Fragment>
       <main className="">
         <div className="flex justify-between items-center">
@@ -55,7 +59,14 @@ export default function Sections() {
                   </div>
                   <p className="font-bold p-0 items-start">{resources.desc}</p>
                   <span className="p-0 ml-0 ">By {resources.by}</span>
-                  {resources.foot}
+
+                  <div className="flex justify-between items-center">
+        <Button className="rounded-3xl flex gap-2" onClick={() =>push(`/resources/1`) }>
+          Enrol Now <MdArrowRightAlt />
+        </Button>
+        <span className="text-blue-700 capitalize">{resources.foot}</span>
+      </div>
+                  {/* {resources.foot} */}
                 </Card>
               );
             })}

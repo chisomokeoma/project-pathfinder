@@ -26,6 +26,7 @@ import clsx from "clsx";
 import Curve from "@/components/home/curve";
 import { CiCalendar } from "react-icons/ci";
 import { CgProfile } from "react-icons/cg";
+import { useRouter, useSearchParams } from "next/navigation";
 
 const items = [
   {
@@ -66,24 +67,28 @@ const carouselList = [
     img: "/expertise1.svg",
     skill: " Development",
     details: "Learning JavaScript With Imagination",
+    id: 1
   },
   {
     name: "Stella Frank",
     img: "/crush.svg",
     skill: " Design",
     details: "The Complete Graphic Design for Beginners",
+    id: 2
   },
   {
     name: "Quenneth Yussuf",
     img: "/course.svg",
     skill: " Marketing",
     details: "Learning Digital Marketing on Facebook",
+    id: 3
   },
   {
     name: "Sonia Onwuka",
     img: "/pro.svg",
     skill: " Business",
     details: "Financial Analyst Training & Investing Course",
+    id: 4
   },
 ];
 
@@ -196,6 +201,7 @@ const styles = {
   },
 };
 export default function Home() {
+  const {push, replace} = useRouter()
   return (
     <section>
       <section className="h-[520px] flex items-center bg-[url(/hero-bg-image.png)] bg-cover bg-center bg-no-repeat">
@@ -352,7 +358,7 @@ export default function Home() {
                 ))}
               </div>
             </div>
-            <Button
+            <Button onClick={() => push('/mentors')}
               styles={{
                 root: {
                   background: "#4B0082",
@@ -364,7 +370,7 @@ export default function Home() {
               }}
             >
               <span className="flex items-center text-base font-semibold leading-[17.92px] text-white gap-1">
-                Get Started
+               Expore
                 <ArrowRight size={14} color="white" />
               </span>
             </Button>
@@ -395,7 +401,7 @@ export default function Home() {
           >
             {carouselList.map((item) => (
               <Carousel.Slide>
-                <div className=" p-[clamp(12px,1.8vw,26px)] flex flex-col gap-[clamp(10px,1.4vw,20px)] bg-white rounded-lg">
+                <div className=" p-[clamp(12px,1.8vw,26px)] flex flex-col gap-[clamp(10px,1.4vw,20px)] bg-white rounded-lg" onClick={() => push('/resources')}>
                   <figure className=" w-[clamp(200px,19vw,278px)] ">
                     <Image
                       src={item.img}
@@ -433,7 +439,7 @@ export default function Home() {
                       </section>
 
                       <section className=" flex gap-[30px] items-center ">
-                        <Button
+                        <Button onClick={() => push(`/resources/${item.id}`)}
                           styles={{
                             root: {
                               background: "#4B0082",
@@ -530,7 +536,7 @@ export default function Home() {
                 profile, send a request and schedule a session.
               </p>
             </article>
-            <Button
+            <Button onClick={() => push('/mentors')}
               styles={{
                 root: {
                   background: "#4B0082",
@@ -750,7 +756,7 @@ export default function Home() {
                 Take the step to mentor people and make global impact while also
                 enhancing your career
               </p>
-              <Button
+              <Button onClick={() =>push('mentor/biodata') }
                 styles={{
                   root: {
                     background: "#4B0082",
@@ -788,7 +794,7 @@ export default function Home() {
                 Join millions of people from around the world to seek guidance
                 and grow together.
               </p>
-              <Button
+              <Button onClick={() =>push('mentee/biodata') }
                 styles={{
                   root: {
                     background: "#4B0082",
