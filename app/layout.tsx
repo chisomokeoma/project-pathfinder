@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Poppins } from "next/font/google";
 import "./globals.css";
 import "@mantine/core/styles.css";
+import "@mantine/dates/styles.css";
 import "@mantine/carousel/styles.css";
 import {
   FaFacebookF,
@@ -26,6 +27,7 @@ import LoveIcon from "@/components/home/love-icon";
 import classes from "@/components/home/login.module.css";
 import { IoIosArrowDown } from "react-icons/io";
 import Link from "next/link";
+import ModalProvider from "@/components/provider/modal-provider";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -79,261 +81,263 @@ export default function RootLayout({
       </head>
       <body className={poppins.className}>
         <MantineProvider>
-          <main>
-            <header className=" py-[11px] bg-purple text-white">
-              <div className="flex max-w-[1400px] mx-auto px-4 justify-between items-center">
-                <section className=" flex items-center gap-[clamp(0.9rem,2vw,1.8rem)] ">
-                  <div className=" flex  gap-[10px] items-center ">
-                    <GrLocation color="#DAD4FF" size={20} />
+          <ModalProvider>
+            <main>
+              <header className=" py-[11px] bg-purple text-white">
+                <div className="flex max-w-[1400px] mx-auto px-4 justify-between items-center">
+                  <section className=" flex items-center gap-[clamp(0.9rem,2vw,1.8rem)] ">
+                    <div className=" flex  gap-[10px] items-center ">
+                      <GrLocation color="#DAD4FF" size={20} />
 
-                    <p
-                      className={`${poppins.className} text-creame text-[14px] font-medium`}
-                    >
-                      123 Str., Lagos, Nigeria
-                    </p>
-                  </div>
-
-                  <div className=" flex items-center gap-[9.6px]">
-                    <GrMailOption color="#DAD4FF" />
-                    <p
-                      className={`${poppins.className} text-creame text-[14px] font-medium`}
-                    >
-                      info@pathfinders.com
-                    </p>
-                  </div>
-                </section>
-                <section className="flex items-center gap-[1.18rem]">
-                  <div className=" flex items-center gap-[9.6px]">
-                    <PiPhoneCallLight color="#DAD4FF" size={20} />
-                    <p
-                      className={`${poppins.className} text-creame text-[14px] font-medium`}
-                    >
-                      Call us:
-                    </p>
-                    <p
-                      className={`${poppins.className} text-creame text-[14px] font-medium`}
-                    >
-                      234 801234567
-                    </p>
-                  </div>
-
-                  <div className=" flex gap-[9.6px] items-center">
-                    <p className=" text-[#DAD4FF] text-[14px] font-medium">
-                      Follow Us On :
-                    </p>
-                    <article className=" flex gap-[9.6px]">
-                      <FaFacebookF color="#E7EFFC" size={16} />
-                      <FaTwitter color="#E7EFFC" size={16} />
-                      <FaWhatsapp color="#E7EFFC" size={18} />
-                      <FaLinkedinIn color="#E7EFFC" size={16} />
-                      <FaYoutube color="#E7EFFC" size={16} />
-                    </article>
-                  </div>
-                </section>
-              </div>
-            </header>
-            <nav className="py-[11px] sticky top-0 bg-white w-full z-10">
-              <div className="flex items-center max-w-[1400px] mx-auto px-4 justify-between">
-                <section className=" flex gap-[clamp(2.5rem,5.9vw,5.3rem)] items-center">
-                  <figure className=" w-[clamp(2.7rem,4.4vw,4.4rem)] h-[clamp(2.7rem,4.4vw,4.4rem)]">
-                    <Image
-                      className="!h-full !w-full"
-                      src="/logo.svg"
-                      width={100}
-                      height={0}
-                      alt="logo"
-                    />
-                  </figure>
-
-                  <div className=" flex justify-between gap-[27px]">
-                    {navArray.map((item, index) => (
-                      <Link
-                        key={index}
-                        href={item.link}
-                        className=" flex gap-[4px] items-center cursor-pointer hover:text-purple"
+                      <p
+                        className={`${poppins.className} text-creame text-[14px] font-medium`}
                       >
-                        <p className=" text-[#161439] font-medium text-base ">
-                          {item.name}
-                        </p>
-                        <span className="pt-3  ">
-                          <IoIosArrowDown />
-                        </span>
-                      </Link>
-                    ))}
-                  </div>
-                </section>
-                <section className=" flex gap-6 items-center ">
-                  <div className="flex border-[#8D9DB5] h-12 px-[9px] border items-center rounded-[50px] min-w-[120px] w-[80%] overflow-hidden">
-                    <article className=" flex gap-[10px] items-center">
-                      <TbCategoryPlus color="#7630F7" />
-                      <p className=" text-black text-[14px] font-medium">
-                        Categories
+                        123 Str., Lagos, Nigeria
                       </p>
-                      <MdOutlineKeyboardArrowDown />
-                    </article>
-                    <input
-                      type="text"
-                      placeholder="Search For Mentors . . ."
-                      className="border-none outline-none placeholder:text-[14px] placeholder:text-[#8D9DB5] placeholder:font-normal border-l"
-                    />
-                  </div>
+                    </div>
 
-                  <div className=" flex items-center gap-[29px]">
-                    <article className=" flex gap-[29px]">
-                      <div className=" gap-[14px] flex items-center ">
-                        <article className=" relative">
-                          <div
-                            className=" flex rounded-full bg-purple items-center justify-center p-[4px] w-[25px] h-[25px] absolute left-[21px] bottom-[29px]
-    "
-                          >
-                            <p className=" text-white">0</p>
-                          </div>
-
-                          <span>
-                            <LoveIcon />
-                          </span>
-                        </article>
-
-                        <article className=" relative">
-                          <div
-                            className=" flex rounded-full bg-purple items-center justify-center p-[4px] w-[25px] h-[25px] absolute left-[21px] bottom-[29px]
-    "
-                          >
-                            <p className=" text-white">0</p>
-                          </div>
-
-                          <span>
-                            <NotificationIcon />
-                          </span>
-                        </article>
-                      </div>
-                    </article>
-                    <Link href="/create-account">
-                      <Button
-                        classNames={classes}
-                        styles={{
-                          root: {
-                            backgroundColor: "#4B0082",
-                            borderRadius: "50px",
-                          },
-                        }}
+                    <div className=" flex items-center gap-[9.6px]">
+                      <GrMailOption color="#DAD4FF" />
+                      <p
+                        className={`${poppins.className} text-creame text-[14px] font-medium`}
                       >
-                        Log in
-                      </Button>
-                    </Link>
-                  </div>
-                </section>
-              </div>
-            </nav>
-            {children}
-            <footer className="  bg-purple  py-[37px]">
-              <section className=" mx-auto flex justify-between px-4 max-w-[1400px]">
-                <div className=" flex flex-col gap-[13px]">
-                  <figure className=" w-[clamp(2.7rem,4.4vw,4.4rem)] h-[clamp(2.7rem,4.4vw,4.4rem)]">
-                    <Image
-                      className="!h-full !w-full"
-                      src="/logo.svg"
-                      width={100}
-                      height={0}
-                      alt="logo"
-                    />
-                  </figure>
-                  <article>
-                    <p className=" text-[14px] text-[#B2BBCC] font-medium">
-                      123 Street, Lagos, Nigeria
-                    </p>
-                    <p className=" text-[14px] text-[#B2BBCC] font-medium">
-                      +234 801234567
-                    </p>
-                  </article>
-                </div>
-                <div className=" flex flex-col gap-[20px]">
-                  <article className=" flex gap-[16px] flex-col">
-                    <h2 className=" text-[20px] font-semibold text-white">
-                      Useful Links
-                    </h2>
-                    <div className=" bg-[#5751E1] h-1 w-[30px] rounded-[2px]"></div>
-                  </article>
-                  <ul className=" flex flex-col gap-[10px] ">
-                    <li className=" text-[#B2BBCC] font-medium text-[14px]">
-                      {" "}
-                      Our values
-                    </li>
-                    <li className="text-[#B2BBCC] font-medium text-[14px]">
-                      {" "}
-                      Our advisory board
-                    </li>
-                    <li className="text-[#B2BBCC] font-medium text-[14px]">
-                      Our partners
-                    </li>
-                    <li className="text-[#B2BBCC] font-medium text-[14px]">
-                      Become a partner
-                    </li>
-                  </ul>
-                </div>
-                <div className=" flex flex-col gap-[20px]">
-                  <article className=" flex gap-[16px] flex-col">
-                    <h2 className=" text-[20px] font-semibold text-white">
-                      Our Company
-                    </h2>
-                    <div className=" bg-[#5751E1] h-1 w-[30px] rounded-[2px]"></div>
-                  </article>
-                  <ul className=" flex flex-col gap-[10px] ">
-                    <li className=" text-[#B2BBCC] font-medium text-[14px]">
-                      Contact Us
-                    </li>
-                    <li className="text-[#B2BBCC] font-medium text-[14px]">
-                      Become Teacher
-                    </li>
-                    <li className="text-[#B2BBCC] font-medium text-[14px]">
-                      Blog
-                    </li>
-                    <li className="text-[#B2BBCC] font-medium text-[14px]">
-                      Instructor
-                    </li>
-                    <li className="text-[#B2BBCC] font-medium text-[14px]">
-                      Events
-                    </li>
-                  </ul>
-                </div>
-                <div className=" flex flex-col gap-[20px]">
-                  <article className=" flex gap-[16px] flex-col">
-                    <h2 className=" text-[20px] font-semibold text-white">
-                      Get In Touch
-                    </h2>
-                    <div className=" bg-[#5751E1] h-1 w-[30px] rounded-[2px]"></div>
-                  </article>
-                  <section className=" flex flex-col gap-[40px]">
-                    <article className=" flex flex-col gap-[18p]">
-                      <p className=" text-[#B2BBCC] font-medium text-[14px] w-[229px]">
-                        We would like to connect with you, follow us on
+                        info@pathfinders.com
                       </p>
-                    </article>
-                    <article className=" flex gap-[9.6px]">
-                      <FaFacebookF color="#E7EFFC" size={16} />
-                      <FaTwitter color="#E7EFFC" size={16} />
-                      <FaWhatsapp color="#E7EFFC" size={18} />
-                      <FaLinkedinIn color="#E7EFFC" size={16} />
-                      <FaYoutube color="#E7EFFC" size={16} />
-                    </article>
+                    </div>
+                  </section>
+                  <section className="flex items-center gap-[1.18rem]">
+                    <div className=" flex items-center gap-[9.6px]">
+                      <PiPhoneCallLight color="#DAD4FF" size={20} />
+                      <p
+                        className={`${poppins.className} text-creame text-[14px] font-medium`}
+                      >
+                        Call us:
+                      </p>
+                      <p
+                        className={`${poppins.className} text-creame text-[14px] font-medium`}
+                      >
+                        234 801234567
+                      </p>
+                    </div>
+
+                    <div className=" flex gap-[9.6px] items-center">
+                      <p className=" text-[#DAD4FF] text-[14px] font-medium">
+                        Follow Us On :
+                      </p>
+                      <article className=" flex gap-[9.6px]">
+                        <FaFacebookF color="#E7EFFC" size={16} />
+                        <FaTwitter color="#E7EFFC" size={16} />
+                        <FaWhatsapp color="#E7EFFC" size={18} />
+                        <FaLinkedinIn color="#E7EFFC" size={16} />
+                        <FaYoutube color="#E7EFFC" size={16} />
+                      </article>
+                    </div>
                   </section>
                 </div>
-              </section>
-            </footer>
-            <section className="bg-[#392A48] py-[35px]">
-              <section className="flex items-center max-w-[1400px] px-4 mx-auto justify-between">
-                <p className="text-base leading-7 text-[#8C9AB4]">
-                  &copy; 2024 pathfinders.com. All rights reserved.
-                </p>
-                <div className="flex items-center gap-4">
-                  <span className="w-[1px] h-3 bg-[#8C9AB4]" />
-                  <p className="text-base leading-7 text-[#8C9AB4]">
-                    Privacy Policy
-                  </p>
+              </header>
+              <nav className="py-[11px] sticky top-0 bg-white w-full z-10">
+                <div className="flex items-center max-w-[1400px] mx-auto px-4 justify-between">
+                  <section className=" flex gap-[clamp(2.5rem,5.9vw,5.3rem)] items-center">
+                    <figure className=" w-[clamp(2.7rem,4.4vw,4.4rem)] h-[clamp(2.7rem,4.4vw,4.4rem)]">
+                      <Image
+                        className="!h-full !w-full"
+                        src="/logo.svg"
+                        width={100}
+                        height={0}
+                        alt="logo"
+                      />
+                    </figure>
+
+                    <div className=" flex justify-between gap-[27px]">
+                      {navArray.map((item, index) => (
+                        <Link
+                          key={index}
+                          href={item.link}
+                          className=" flex gap-[4px] items-center cursor-pointer hover:text-purple"
+                        >
+                          <p className=" text-[#161439] font-medium text-base ">
+                            {item.name}
+                          </p>
+                          <span className="pt-3  ">
+                            <IoIosArrowDown />
+                          </span>
+                        </Link>
+                      ))}
+                    </div>
+                  </section>
+                  <section className=" flex gap-6 items-center ">
+                    <div className="flex border-[#8D9DB5] h-12 px-[9px] border items-center rounded-[50px] min-w-[120px] w-[80%] overflow-hidden">
+                      <article className=" flex gap-[10px] items-center">
+                        <TbCategoryPlus color="#7630F7" />
+                        <p className=" text-black text-[14px] font-medium">
+                          Categories
+                        </p>
+                        <MdOutlineKeyboardArrowDown />
+                      </article>
+                      <input
+                        type="text"
+                        placeholder="Search For Mentors . . ."
+                        className="border-none outline-none placeholder:text-[14px] placeholder:text-[#8D9DB5] placeholder:font-normal border-l"
+                      />
+                    </div>
+
+                    <div className=" flex items-center gap-[29px]">
+                      <article className=" flex gap-[29px]">
+                        <div className=" gap-[14px] flex items-center ">
+                          <article className=" relative">
+                            <div
+                              className=" flex rounded-full bg-purple items-center justify-center p-[4px] w-[25px] h-[25px] absolute left-[21px] bottom-[29px]
+    "
+                            >
+                              <p className=" text-white">0</p>
+                            </div>
+
+                            <span>
+                              <LoveIcon />
+                            </span>
+                          </article>
+
+                          <article className=" relative">
+                            <div
+                              className=" flex rounded-full bg-purple items-center justify-center p-[4px] w-[25px] h-[25px] absolute left-[21px] bottom-[29px]
+    "
+                            >
+                              <p className=" text-white">0</p>
+                            </div>
+
+                            <span>
+                              <NotificationIcon />
+                            </span>
+                          </article>
+                        </div>
+                      </article>
+                      <Link href="/create-account">
+                        <Button
+                          classNames={classes}
+                          styles={{
+                            root: {
+                              backgroundColor: "#4B0082",
+                              borderRadius: "50px",
+                            },
+                          }}
+                        >
+                          Log in
+                        </Button>
+                      </Link>
+                    </div>
+                  </section>
                 </div>
+              </nav>
+              {children}
+              <footer className="  bg-purple  py-[37px]">
+                <section className=" mx-auto flex justify-between px-4 max-w-[1400px]">
+                  <div className=" flex flex-col gap-[13px]">
+                    <figure className=" w-[clamp(2.7rem,4.4vw,4.4rem)] h-[clamp(2.7rem,4.4vw,4.4rem)]">
+                      <Image
+                        className="!h-full !w-full"
+                        src="/logo.svg"
+                        width={100}
+                        height={0}
+                        alt="logo"
+                      />
+                    </figure>
+                    <article>
+                      <p className=" text-[14px] text-[#B2BBCC] font-medium">
+                        123 Street, Lagos, Nigeria
+                      </p>
+                      <p className=" text-[14px] text-[#B2BBCC] font-medium">
+                        +234 801234567
+                      </p>
+                    </article>
+                  </div>
+                  <div className=" flex flex-col gap-[20px]">
+                    <article className=" flex gap-[16px] flex-col">
+                      <h2 className=" text-[20px] font-semibold text-white">
+                        Useful Links
+                      </h2>
+                      <div className=" bg-[#5751E1] h-1 w-[30px] rounded-[2px]"></div>
+                    </article>
+                    <ul className=" flex flex-col gap-[10px] ">
+                      <li className=" text-[#B2BBCC] font-medium text-[14px]">
+                        {" "}
+                        Our values
+                      </li>
+                      <li className="text-[#B2BBCC] font-medium text-[14px]">
+                        {" "}
+                        Our advisory board
+                      </li>
+                      <li className="text-[#B2BBCC] font-medium text-[14px]">
+                        Our partners
+                      </li>
+                      <li className="text-[#B2BBCC] font-medium text-[14px]">
+                        Become a partner
+                      </li>
+                    </ul>
+                  </div>
+                  <div className=" flex flex-col gap-[20px]">
+                    <article className=" flex gap-[16px] flex-col">
+                      <h2 className=" text-[20px] font-semibold text-white">
+                        Our Company
+                      </h2>
+                      <div className=" bg-[#5751E1] h-1 w-[30px] rounded-[2px]"></div>
+                    </article>
+                    <ul className=" flex flex-col gap-[10px] ">
+                      <li className=" text-[#B2BBCC] font-medium text-[14px]">
+                        Contact Us
+                      </li>
+                      <li className="text-[#B2BBCC] font-medium text-[14px]">
+                        Become Teacher
+                      </li>
+                      <li className="text-[#B2BBCC] font-medium text-[14px]">
+                        Blog
+                      </li>
+                      <li className="text-[#B2BBCC] font-medium text-[14px]">
+                        Instructor
+                      </li>
+                      <li className="text-[#B2BBCC] font-medium text-[14px]">
+                        Events
+                      </li>
+                    </ul>
+                  </div>
+                  <div className=" flex flex-col gap-[20px]">
+                    <article className=" flex gap-[16px] flex-col">
+                      <h2 className=" text-[20px] font-semibold text-white">
+                        Get In Touch
+                      </h2>
+                      <div className=" bg-[#5751E1] h-1 w-[30px] rounded-[2px]"></div>
+                    </article>
+                    <section className=" flex flex-col gap-[40px]">
+                      <article className=" flex flex-col gap-[18p]">
+                        <p className=" text-[#B2BBCC] font-medium text-[14px] w-[229px]">
+                          We would like to connect with you, follow us on
+                        </p>
+                      </article>
+                      <article className=" flex gap-[9.6px]">
+                        <FaFacebookF color="#E7EFFC" size={16} />
+                        <FaTwitter color="#E7EFFC" size={16} />
+                        <FaWhatsapp color="#E7EFFC" size={18} />
+                        <FaLinkedinIn color="#E7EFFC" size={16} />
+                        <FaYoutube color="#E7EFFC" size={16} />
+                      </article>
+                    </section>
+                  </div>
+                </section>
+              </footer>
+              <section className="bg-[#392A48] py-[35px]">
+                <section className="flex items-center max-w-[1400px] px-4 mx-auto justify-between">
+                  <p className="text-base leading-7 text-[#8C9AB4]">
+                    &copy; 2024 pathfinders.com. All rights reserved.
+                  </p>
+                  <div className="flex items-center gap-4">
+                    <span className="w-[1px] h-3 bg-[#8C9AB4]" />
+                    <p className="text-base leading-7 text-[#8C9AB4]">
+                      Privacy Policy
+                    </p>
+                  </div>
+                </section>
               </section>
-            </section>
-          </main>
+            </main>
+          </ModalProvider>
         </MantineProvider>
       </body>
     </html>
