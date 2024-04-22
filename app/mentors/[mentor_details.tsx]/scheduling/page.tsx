@@ -1,5 +1,4 @@
-"use client"
-
+"use client";
 
 import Hero from "@/components/home/hero";
 import { Button } from "@mantine/core";
@@ -9,12 +8,15 @@ import { FaPhone, FaStar, FaVideo } from "react-icons/fa";
 import { DateTimePicker } from "@mantine/dates";
 import { Calendar } from "iconsax-react";
 import { BsPersonWorkspace } from "react-icons/bs";
-import { IModalContext, ModalContext } from "@/components/provider/modal-provider";
+import {
+  IModalContext,
+  ModalContext,
+} from "@/components/provider/modal-provider";
 import SuccessSchedule from "@/components/modals/schedule-success";
 import ProfileUpdate from "@/components/modals/profile-update";
 
 function Scheduling() {
-    const { setModalState, close } = useContext(ModalContext) as IModalContext;
+  const { setModalState, close } = useContext(ModalContext) as IModalContext;
   return (
     <section className=" flex flex-col">
       <Hero text="Scheduling " />
@@ -100,11 +102,11 @@ function Scheduling() {
                 <FaPhone className=" " />
                 <p className="text-[12px] font-medium">Phone Call</p>
               </article>
-              <article className=" p-[16px] flex flex-col gap-2 shadow-lg border items-center cursor-pointer">
+              <article className=" p-[16px] flex flex-col gap-2 shadow-lg border items-center cursor-pointer hover:bg-[#d4cdf8]">
                 <FaVideo />
                 <p className="text-[12px] font-medium">Video Call</p>
               </article>
-              <article className=" p-[16px] flex flex-col gap-2 shadow-lg border items-center cursor-pointer">
+              <article className=" p-[16px] flex flex-col gap-2 shadow-lg border items-center cursor-pointer hover:bg-[#d4cdf8]">
                 <BsPersonWorkspace />
                 <p className=" text-[12px] font-medium">In Person</p>
               </article>
@@ -114,16 +116,14 @@ function Scheduling() {
       </section>
 
       <div className=" flex items-center mx-auto pb-[20px]">
-        <Button onClick={() => {
+        <Button
+          onClick={() => {
             setModalState({
-               opened: true,
-            //    component: (<SuccessSchedule/>)
-            component: (<ProfileUpdate/>)
-            
-
-               
-            })
-        }}
+              opened: true,
+              //    component: (<SuccessSchedule/>)
+              component: <ProfileUpdate />,
+            });
+          }}
           styles={{
             root: {
               background: "#4B0082",

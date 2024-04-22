@@ -8,6 +8,7 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
+import { useRouter, useSearchParams } from "next/navigation";
 import Image from "next/image";
 import img from "@/public/images/marketing.png";
 import DotImage from "@/public/images/newsletter_shape02.png.png";

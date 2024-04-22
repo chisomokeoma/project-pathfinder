@@ -1,7 +1,19 @@
+"use client"
+
 import { Button, TextInput } from "@mantine/core";
 import classes from "@/components/home/signup.module.css";
 import Link from "next/link";
 import Hero from "@/components/home/hero";
+import { useForm } from "@mantine/form";
+
+export interface IMenteeBio {
+  name: string;
+  gender: string;
+  institution: string;
+  location: string;
+  parent_email: string;
+  skills: string;
+}
 
 const styles = {
   root: {
@@ -17,6 +29,17 @@ const styles = {
 };
 
 export default function CreateAccountMentee() {
+  const menteeBioForm = useForm({
+    initialValues: {
+      name: "",
+      gender: "",
+      institution: "",
+      location: "",
+      parent_email: "",
+      skills: "",
+    },
+  });
+
   return (
     <section className="flex flex-col">
       <Hero text="Create Account" />
@@ -32,12 +55,12 @@ export default function CreateAccountMentee() {
           </div>
           <div className="flex flex-col gap-[65.8px]">
             <div className="flex flex-col gap-[30px]">
-              <TextInput styles={styles} placeholder="Name" />
-              <TextInput styles={styles} placeholder="Gender" />
-              <TextInput styles={styles} placeholder="Institution" />
-              <TextInput styles={styles} placeholder="Location" />
-              <TextInput styles={styles} placeholder="Parent's Email" />
-              <TextInput styles={styles} placeholder="Skills" />
+              <TextInput styles={styles} placeholder="Name"  {...menteeBioForm.getInputProps('name')}/>
+              <TextInput styles={styles} placeholder="Gender" {...menteeBioForm.getInputProps('gender')} />
+              <TextInput styles={styles} placeholder="Institution"  {...menteeBioForm.getInputProps('institution')}/>
+              <TextInput styles={styles} placeholder="Location"  {...menteeBioForm.getInputProps('location')}/>
+              <TextInput styles={styles} placeholder="Parent's Email" {...menteeBioForm.getInputProps('parent_name')} />
+              <TextInput styles={styles} placeholder="Skills" {...menteeBioForm.getInputProps('skills')} />
             </div>
             <div className="flex flex-col gap-7">
               <Link className="w-full" href="/create-account/verification">

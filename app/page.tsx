@@ -11,7 +11,6 @@ import { Accordion, Avatar, Button, TextInput } from "@mantine/core";
 import { ArrowLeft, ArrowRight } from "iconsax-react";
 import Image from "next/image";
 import { MdOutlineArrowForwardIos } from "react-icons/md";
-import classes from "@/components/home/signup.module.css";
 import MentorText from "@/components/home/mentor-text";
 import { Carousel } from "@mantine/carousel";
 import {
@@ -27,6 +26,9 @@ import Curve from "@/components/home/curve";
 import { CiCalendar } from "react-icons/ci";
 import { CgProfile } from "react-icons/cg";
 import { useRouter, useSearchParams } from "next/navigation";
+import Link from "next/link";
+import CarouselSection from "@/components/home/carousel-section";
+import AccordionSection from "@/components/home/accordion-section";
 
 const items = [
   {
@@ -61,36 +63,7 @@ const items = [
   },
 ];
 
-const carouselList = [
-  {
-    name: "Ngozi Onwuka",
-    img: "/expertise1.svg",
-    skill: " Development",
-    details: "Learning JavaScript With Imagination",
-    id: 1
-  },
-  {
-    name: "Stella Frank",
-    img: "/crush.svg",
-    skill: " Design",
-    details: "The Complete Graphic Design for Beginners",
-    id: 2
-  },
-  {
-    name: "Quenneth Yussuf",
-    img: "/course.svg",
-    skill: " Marketing",
-    details: "Learning Digital Marketing on Facebook",
-    id: 3
-  },
-  {
-    name: "Sonia Onwuka",
-    img: "/pro.svg",
-    skill: " Business",
-    details: "Financial Analyst Training & Investing Course",
-    id: 4
-  },
-];
+
 
 const mentorList = [
   "Meet Top Class Mentors",
@@ -201,7 +174,7 @@ const styles = {
   },
 };
 export default function Home() {
-  const {push, replace} = useRouter()
+  const { push, replace } = useRouter();
   return (
     <section>
       <section className="h-[520px] flex items-center bg-[url(/hero-bg-image.png)] bg-cover bg-center bg-no-repeat">
@@ -358,7 +331,9 @@ export default function Home() {
                 ))}
               </div>
             </div>
-            <Button onClick={() => push('/mentors')}
+            <Button
+              component={Link}
+              href="/mentors"
               styles={{
                 root: {
                   background: "#4B0082",
@@ -370,7 +345,7 @@ export default function Home() {
               }}
             >
               <span className="flex items-center text-base font-semibold leading-[17.92px] text-white gap-1">
-               Expore
+                Expore
                 <ArrowRight size={14} color="white" />
               </span>
             </Button>
@@ -389,83 +364,11 @@ export default function Home() {
             Explore Our Lessons and Webninars
           </h3>
         </div>
-        <section className=" ">
-          <Carousel
-            withIndicators
-            // height={200}
-            slideSize={{ base: "100%", sm: "50%", md: "20.333333%" }}
-            slideGap={{ base: 0, sm: "md" }}
-            loop
-            // slidesToScroll={4}
-            align="start"
-          >
-            {carouselList.map((item) => (
-              <Carousel.Slide>
-                <div className=" p-[clamp(12px,1.8vw,26px)] flex flex-col gap-[clamp(10px,1.4vw,20px)] bg-white rounded-lg" onClick={() => push('/resources')}>
-                  <figure className=" w-[clamp(200px,19vw,278px)] ">
-                    <Image
-                      src={item.img}
-                      width={20}
-                      height={20}
-                      alt="laravel img"
-                      className="w-full "
-                    />
-                  </figure>
-                  <section className=" flex flex-col gap-[22px] ">
-                    <div className=" flex justify-between items-center">
-                      <article className=" py-[7px] px-[13px] bg-[#EFEFF2] rounded-[50px]">
-                        <p className=" text-[#161439] text-[13px] font-medium">
-                          {item?.skill}
-                        </p>
-                      </article>
-                      <article className=" flex gap-1 items-center ">
-                        <FaStar size={14} color="#F8BC24" />
-                        <p className=" text-[#7F7E97] font-normal text-[14px]">
-                          (4.5 Reviews)
-                        </p>
-                      </article>
-                    </div>
-                    <div className=" flex flex-col gap-[23px] ">
-                      <section className=" flex flex-col gap[14px]">
-                        <h3 className=" text-[18px] font-semibold">
-                          {item.details}
-                        </h3>
-                        <p className=" text-[#6D6C80] text-[15px] font-normal">
-                          By{" "}
-                          <span className=" text-[15px] font-normal text-[#161439]">
-                            {item.name}
-                          </span>
-                        </p>
-                      </section>
 
-                      <section className=" flex gap-[30px] items-center ">
-                        <Button onClick={() => push(`/resources/${item.id}`)}
-                          styles={{
-                            root: {
-                              background: "#4B0082",
-                              height: "49px",
-                              paddingInline: "32px",
-                              borderRadius: "50px",
-                              width: "fit-content",
-                            },
-                          }}
-                        >
-                          <span className="flex items-center text-base font-semibold leading-[17.92px] text-white gap-1">
-                            Enroll Now
-                            <ArrowRight size={14} color="white" />
-                          </span>
-                        </Button>
-                        <p className=" text-[#5751E1] font-bold text-[20px] whitespace-nowrap">
-                          12,000 NGN
-                        </p>
-                      </section>
-                    </div>
-                  </section>
-                </div>
-              </Carousel.Slide>
-            ))}
-          </Carousel>
-        </section>
+
+      <CarouselSection/>
+
+
       </section>
 
       {/* Subscribe Now Section */}
@@ -488,7 +391,11 @@ export default function Home() {
                 <span className="text-[36px] font-bold"> Offers?</span>
               </h2>
               <article className=" flex gap-[10px] ">
-                <TextInput placeholder="Type your e-mail" styles={styles} />
+                <TextInput
+                  disabled
+                  placeholder="Type your e-mail"
+                  styles={styles}
+                />
                 <Button
                   styles={{
                     root: {
@@ -536,7 +443,9 @@ export default function Home() {
                 profile, send a request and schedule a session.
               </p>
             </article>
-            <Button onClick={() => push('/mentors')}
+            <Button
+              href="/mentors"
+              component={Link}
               styles={{
                 root: {
                   background: "#4B0082",
@@ -658,60 +567,9 @@ export default function Home() {
               </h4>
             </div>
 
-            <Accordion
-              defaultValue="customization"
-              styles={{
-                root: {
-                  width: "550px",
-                },
-                label: {
-                  color: "#4B0082",
-                  fontSize: "20px",
-                  fontWeight: 500,
-                },
-                content: {
-                  color: "#1C1A4A",
-                  fontSize: "16px",
-                  fontWeight: 400,
-                },
-              }}
-            >
-              <Accordion.Item value="customization">
-                <Accordion.Control>
-                  What is PathFinders all about?
-                </Accordion.Control>
-                <Accordion.Panel>
-                  PathFinders is a platform that connects mentees with mentors
-                  from diverse industrious and also offers learning resources to
-                  develop an individual’s skills.
-                </Accordion.Panel>
-              </Accordion.Item>
+            <AccordionSection/>
 
-              <Accordion.Item value="flexibility">
-                <Accordion.Control>Why choose us?</Accordion.Control>
-                <Accordion.Panel>
-                  Configure components appearance and behavior with vast amount
-                  of settings or overwrite any part of component styles
-                </Accordion.Panel>
-              </Accordion.Item>
 
-              <Accordion.Item value="flexibility">
-                <Accordion.Control>Why choose us?</Accordion.Control>
-                <Accordion.Panel>
-                  Configure components appearance and behavior with vast amount
-                  of settings or overwrite any part of component styles
-                </Accordion.Panel>
-              </Accordion.Item>
-              <Accordion.Item value="focus-ring">
-                <Accordion.Control>
-                  How we provide these services?
-                </Accordion.Control>
-                <Accordion.Panel>
-                  With new :focus-visible pseudo-class focus ring appears only
-                  when user navigates with keyboard
-                </Accordion.Panel>
-              </Accordion.Item>
-            </Accordion>
           </section>
         </section>
       </section>
@@ -756,7 +614,10 @@ export default function Home() {
                 Take the step to mentor people and make global impact while also
                 enhancing your career
               </p>
-              <Button onClick={() =>push('mentor/biodata') }
+
+              <Button
+                href="/create-account/details"
+                component={Link}
                 styles={{
                   root: {
                     background: "#4B0082",
@@ -782,7 +643,7 @@ export default function Home() {
             <figure
               className="w-[clamp(95px,13vw,190px)] bg-cover bg-no-repeat  "
               style={{
-                backgroundImage: 'url("/menteee-apply.svg")',
+                backgroundImage: 'url("./menteee-apply.svg")',
               }}
             ></figure>
 
@@ -794,7 +655,9 @@ export default function Home() {
                 Join millions of people from around the world to seek guidance
                 and grow together.
               </p>
-              <Button onClick={() =>push('mentee/biodata') }
+              <Button
+                href="/create-account/details?view=mentee"
+                component={Link}
                 styles={{
                   root: {
                     background: "#4B0082",

@@ -8,7 +8,7 @@ export interface IWrapper {
 }
 function Hero({ text, route }: IWrapper) {
   return (
-    <section className="h-[321px] bg-[#85608880]">
+    <section className="h-[221px] bg-[#85608880]">
       <div className="flex max-w-[1500px] items-center pl-[60px] justify-between">
         <article className=" flex flex-col gap-[25px]">
           <h1 className="text-black text-[40px] leading-[48px] font-semibold">
@@ -40,7 +40,7 @@ function Hero({ text, route }: IWrapper) {
           src="/illustration.png"
           width={600}
           height={600}
-          className="h-full w-[380px] object-cover"
+          className="h-full w-[262px] object-cover"
           alt="illustration"
         />
       </div>

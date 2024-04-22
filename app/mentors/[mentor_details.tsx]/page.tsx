@@ -51,7 +51,7 @@ function Mentorsdetails({ params }: { params: { mentor_details: string } }) {
               globe and she <br /> will be happy to connect with you.
             </div>
             <div>
-              <button className="text-purple bg-white rounded-[20px] w-[202px] h-[50px]">
+              <button className="text-purple bg-white rounded-[20px] w-[202px] h-[50px]" onClick={() => push('./mentors/scheduling')}>
                 Schedule Session
               </button>
             </div>

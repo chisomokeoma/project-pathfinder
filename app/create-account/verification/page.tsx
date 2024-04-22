@@ -1,8 +1,11 @@
+"use client"
+
 import { Button, TextInput } from "@mantine/core";
 import classes from "@/components/home/signup.module.css";
 import Link from "next/link";
 import Hero from "@/components/home/hero";
 import Image from "next/image";
+import {useRouter} from "next/navigation"
 
 const styles = {
   root: {
@@ -18,12 +21,13 @@ const styles = {
 };
 
 export default function CreateAccountMentor() {
+  const {push} = useRouter()
   return (
     <section className="flex flex-col">
       <Hero text="Verification" />
-      <div className="mt-[100px] mb-[200px] bg-[#F9F9F9] py-[68px]">
-        <article className="flex gap-[106px] items-center h-[888px] px-12 py-8 border border-[#E1E1E1] bg-[#F7F7FA] rounded-lg w-[690px] mx-auto flex-col">
-          <div className="flex flex-col items-center gap-[71px]">
+      <div className="mt-[30px] mb-[50px] bg-[#F9F9F9] py-[58px]">
+        <article className="flex gap-[50px] items-center h-[650px] px-12 py-8 border border-[#E1E1E1] bg-[#F7F7FA] rounded-lg w-[590px] mx-auto flex-col">
+          <div className="flex flex-col items-center gap-[21px]">
             <Image
               src="/verification.png"
               alt="verification icon"
@@ -40,9 +44,19 @@ export default function CreateAccountMentor() {
               </p>
             </div>
           </div>
-          <Button classNames={classes} style={{ width: "fit-content" }}>
-            Resend Email
+          <div className=" flex flex-col ">
+
+
+          <Button classNames={classes} style={{ width: '350px'}} onClick={() => push('./otp')}>
+            Send OTP
           </Button>
+          <Link href='#'>
+
+
+          <p className=" flex text-[13px] text-red-700 font-medium cursor-pointer self-end justify-end" > Resend Email</p>
+          </Link>
+            
+          </div>
         </article>
       </div>
     </section>
