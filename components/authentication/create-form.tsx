@@ -1,6 +1,5 @@
 "use client";
 
-
 import { TextInput, PasswordInput, Button } from "@mantine/core";
 import { Link } from "iconsax-react";
 import { Loader, FacebookIcon, AppleIcon } from "lucide-react";
@@ -10,10 +9,10 @@ import { builder } from "@/api/builder";
 import { errorMessageHandler, ErrorType } from "@/utils/error-handler";
 import { useForm } from "@mantine/form";
 import { useMutation } from "@tanstack/react-query";
-import { useSearchParams } from "next/navigation";
-import { useRouter } from "next/router";
+import { useSearchParams, useRouter } from "next/navigation";
 import toast from "react-hot-toast";
 import classes from "@/components/home/signup.module.css";
+import { base64encode } from "nodejs-base64";
 
 export interface ICreateForm {
   email: string;
@@ -45,7 +44,7 @@ function CreateForm() {
 
   const searchParams = useSearchParams();
   const view = searchParams.get("view");
-  const router = useRouter();
+  const { push } = useRouter();
   // create for mentor
   const { mutate, isLoading } = useMutation({
     mutationFn: () =>
@@ -53,12 +52,14 @@ function CreateForm() {
         ? builder.use().authentication.create_account_mentee(createForm.values)
         : builder.use().authentication.create_account(createForm.values),
     mutationKey: builder.authentication.create_account.get(),
-    onSuccess(data, variables, contex) {
-      view === "mentee"
-        ? (toast.success("Mentee created successfully"),
-          router.push(`./create-account/mentee/age`))
-        : toast.success("Mentee created successfully"),
-        router.push(`./create-account/mentor/biodata`);
+    onSuccess({ data }, variables, contex) {
+      if (view === "mentee") {
+        toast.success("Mentee created successfully");
+        push(`/create-account/mentee/age?auth=${base64encode(data?._id)}`);
+      } else {
+        toast.success("Mentor created successfully");
+        push(`/create-account/mentor/biodata?auth=${base64encode(data?._id)}`);
+      }
     },
     onError(error) {
       errorMessageHandler(error as ErrorType);
@@ -100,21 +101,16 @@ function CreateForm() {
         }}
         classNames={classes}
         type="submit"
+        loading={isLoading}
       >
-        {isLoading ? (
-          <span className="flex gap-2 items-center">
-            Submitting <Loader size="sm" />
-          </span>
-        ) : (
-          "Submit"
-        )}
+        Submit
       </Button>
       {/* </Link> */}
       <div className="mt-[67px] flex gap-6 flex-col items-center">
         <p className="text-center text-[17px] leading-[21.13px] font-medium tracking-[4%] text-[#8D8D8D]">
           Or Sign Up With
         </p>
-        <div className="flex gap-10">
+        <div className="flex gap-10 items-center">
           <GoogleIIcon />
           <FacebookIcon />
           <AppleIcon />

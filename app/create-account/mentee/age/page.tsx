@@ -5,9 +5,14 @@ import classes from "@/components/home/signup.module.css";
 import Link from "next/link";
 import Hero from "@/components/home/hero";
 import { useState } from "react";
+import { useSearchParams } from "next/navigation";
+import { base64decode } from "nodejs-base64";
 
 export default function MenteeAge() {
   const [age, setAge] = useState<"below18" | "above18" | "">("");
+
+  const searchParams = useSearchParams()
+  const auth =  searchParams.get('auth')
 
   return (
     <section className="flex flex-col">
@@ -60,10 +65,10 @@ export default function MenteeAge() {
                   ? "pointer-events-none cursor-not-allowed w-full"
                   : "w-full"
               }
-              href="/create-account/mentee/biodata"
+              href={`/create-account/mentee/biodata?auth=${auth}`}
             >
               <Button disabled={!age} classNames={classes} >
-                Sign Up
+                Proceed
               </Button>
             </Link>
             <p className="text-base self-center leading-7 text-[#6D6C80]">

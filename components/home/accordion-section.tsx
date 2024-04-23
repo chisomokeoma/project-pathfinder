@@ -34,13 +34,7 @@ export default function AccordionSection() {
       </Accordion.Panel>
     </Accordion.Item>
 
-    <Accordion.Item value="flexibility">
-      <Accordion.Control>Why choose us?</Accordion.Control>
-      <Accordion.Panel>
-        Configure components appearance and behavior with vast amount
-        of settings or overwrite any part of component styles
-      </Accordion.Panel>
-    </Accordion.Item>
+  
 
     <Accordion.Item value="flexibility">
       <Accordion.Control>Why choose us?</Accordion.Control>

@@ -1,6 +1,6 @@
 "use client"
 
-import { Carousel } from '@mantine/carousel'
+import { Carousel } from "@mantine/carousel";
 import { Button } from '@mantine/core'
 import { ArrowRight, Link } from 'iconsax-react'
 import Image from 'next/image'
@@ -8,38 +8,40 @@ import React from 'react'
 import { FaStar } from 'react-icons/fa'
 
 
-
 const carouselList = [
-    {
-      name: "Ngozi Onwuka",
-      img: "/expertise1.svg",
-      skill: " Development",
-      details: "Learning JavaScript With Imagination",
-      id: 1,
-    },
-    {
-      name: "Stella Frank",
-      img: "/crush.svg",
-      skill: " Design",
-      details: "The Complete Graphic Design for Beginners",
-      id: 2,
-    },
-    {
-      name: "Quenneth Yussuf",
-      img: "/course.svg",
-      skill: " Marketing",
-      details: "Learning Digital Marketing on Facebook",
-      id: 3,
-    },
-    {
-      name: "Sonia Onwuka",
-      img: "/pro.svg",
-      skill: " Business",
-      details: "Financial Analyst Training & Investing Course",
-      id: 4,
-    },
-  ];
+  {
+    name: "Ngozi Onwuka",
+    img: "/expertise1.svg",
+    skill: " Development",
+    details: "Learning JavaScript With Imagination",
+    id: 1,
+  },
+  {
+    name: "Stella Frank",
+    img: "/crush.svg",
+    skill: " Design",
+    details: "The Complete Graphic Design for Beginners",
+    id: 2,
+  },
+  {
+    name: "Quenneth Yussuf",
+    img: "/course.svg",
+    skill: " Marketing",
+    details: "Learning Digital Marketing on Facebook",
+    id: 3,
+  },
+  {
+    name: "Sonia Onwuka",
+    img: "/pro.svg",
+    skill: " Business",
+    details: "Financial Analyst Training & Investing Course",
+    id: 4,
+  },
+];
+
+
 export default function CarouselSection() {
+
   return (
     <section className=" ">
           <Carousel
@@ -136,6 +138,6 @@ export default function CarouselSection() {
               </Carousel.Slide>
             ))}
           </Carousel>
-        </section>
+         </section>
   )
 }
