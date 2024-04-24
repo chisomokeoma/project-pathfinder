@@ -5,7 +5,11 @@ import classes from "@/components/home/signup.module.css";
 import Link from "next/link";
 import Hero from "@/components/home/hero";
 import Image from "next/image";
-import {useRouter} from "next/navigation"
+import {useRouter, useSearchParams} from "next/navigation"
+import { useMutation } from "@tanstack/react-query";
+import { builder } from "@/api/builder";
+import { base64decode } from "nodejs-base64";
+import toast from "react-hot-toast";
 
 const styles = {
   root: {
@@ -20,8 +24,24 @@ const styles = {
   },
 };
 
+
+
+
+
 export default function CreateAccountMentor() {
   const {push} = useRouter()
+  const searchParams = useSearchParams();
+  const auth = searchParams.get("auth");
+
+  const {mutate} = useMutation({
+    mutationFn : () => builder.use().mentee.verify(base64decode(auth as string)),
+    mutationKey: builder.mentee.verify.get(),
+    onSuccess(data, variable){
+      toast.success(`Account verified successfully`);
+    }
+  })
+
+
   return (
     <section className="flex flex-col">
       <Hero text="Verification" />
@@ -47,7 +67,10 @@ export default function CreateAccountMentor() {
           <div className=" flex flex-col ">
 
 
-          <Button classNames={classes} style={{ width: '350px'}} onClick={() => push('./otp')}>
+          <Button classNames={classes} style={{ width: '350px'}} onClick={() => {
+            mutate()
+            push('./otp')
+          }   }  >
             Send OTP
           </Button>
           <Link href='#'>

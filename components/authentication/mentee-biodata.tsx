@@ -85,7 +85,7 @@ export default function MenteeBiodata() {
         <TextInput
           styles={styles}
           placeholder="Parent's Email"
-          {...menteeBioForm.getInputProps("parent_name")}
+          {...menteeBioForm.getInputProps("parent_email")}
         />
         <TextInput
           styles={styles}

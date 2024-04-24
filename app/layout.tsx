@@ -2,7 +2,7 @@
 
 // import type { Metadata } from "next";
 import { Inter, Poppins } from "next/font/google";
-
+import { Menu, Button, Text, rem } from "@mantine/core";
 import "./globals.css";
 import "@mantine/core/styles.css";
 import "@mantine/dates/styles.css";
@@ -17,15 +17,13 @@ import {
 import { GrLocation, GrMailOption } from "react-icons/gr";
 import { PiPhoneCallLight } from "react-icons/pi";
 import Image from "next/image";
-import { MdOutlineKeyboardArrowDown } from "react-icons/md";
+import { MdAddToDrive, MdOutlineKeyboardArrowDown } from "react-icons/md";
 import { TbCategoryPlus } from "react-icons/tb";
 import {
-  Button,
   ColorSchemeScript,
   Indicator,
   MantineProvider,
   Popover,
-  Text,
 } from "@mantine/core";
 import NotificationIcon from "@/components/home/notification-icon";
 import LoveIcon from "@/components/home/love-icon";
@@ -35,6 +33,7 @@ import Link from "next/link";
 import ModalProvider from "@/components/provider/modal-provider";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "react-hot-toast";
+import { Add } from "iconsax-react";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -72,7 +71,7 @@ const navArray = [
     link: "/mentors",
     dropDown: (
       <span className="">
-        <Popover position="bottom" withArrow shadow="md">
+        {/* <Popover position="bottom" withArrow shadow="md">
           <Popover.Target>
             <span>
               <IoIosArrowDown />
@@ -91,12 +90,33 @@ const navArray = [
               // </Link>
             )}
           ></Popover.Dropdown>
-        </Popover>
+        </Popover> */}
+
+        <Menu shadow="md" width={200}>
+          <Menu.Target>
+            <span>
+              <IoIosArrowDown />
+            </span>
+          </Menu.Target>
+
+          <Menu.Dropdown>
+            <Menu.Item>
+              <Link href="./mentors/requests">
+                <p className=" text-[14px] text-black font-normal z-50 cursor-pointer p-1 hover:bg-slate-300">
+                  Mentorship requests
+                </p>
+              </Link>
+            </Menu.Item>
+            
+           
+          </Menu.Dropdown>
+        </Menu>
       </span>
     ),
   },
+
   { name: "Blog", link: "" },
-  { name: "Notification", link: "/notification" },
+  { name: "Messages", link: "/messages" },
 ];
 
 // export const metadata: Metadata = {
@@ -118,7 +138,7 @@ export default function RootLayout({
       <body className={poppins.className}>
         <MantineProvider>
           <ModalProvider>
-          <Toaster />
+            <Toaster />
             <QueryClientProvider client={queryClient}>
               <main>
                 <header className=" py-[11px] bg-purple text-white">
@@ -191,7 +211,7 @@ export default function RootLayout({
                           <Link
                             key={index}
                             href={item.link}
-                            className=" flex gap-[4px] items-center cursor-pointer hover:text-purple"
+                            className=" flex gap-[10px] items-center cursor-pointer hover:text-purple"
                           >
                             <p className=" text-[#161439] font-medium text-base ">
                               {item.name}
@@ -235,8 +255,8 @@ export default function RootLayout({
                                 <LoveIcon />
                               </span>
                             </article>
-
-                            <article className=" relative">
+                            
+                            <Link href='/notification' className=" relative">
                               <div
                                 className=" flex rounded-full bg-purple items-center justify-center p-[4px] w-[25px] h-[25px] absolute left-[21px] bottom-[29px]
     "
@@ -247,7 +267,7 @@ export default function RootLayout({
                               <span>
                                 <NotificationIcon />
                               </span>
-                            </article>
+                            </Link>
                           </div>
                         </article>
                         <Link href="/create-account">
@@ -258,8 +278,6 @@ export default function RootLayout({
                                 backgroundColor: "#4B0082",
                                 borderRadius: "50px",
                                 width: "fit-content",
-                                
-                             
                               },
                             }}
                           >

@@ -53,13 +53,16 @@ function CreateForm() {
         : builder.use().authentication.create_account(createForm.values),
     mutationKey: builder.authentication.create_account.get(),
     onSuccess({ data }, variables, contex) {
-      if (view === "mentee") {
-        toast.success("Mentee created successfully");
-        push(`/create-account/mentee/age?auth=${base64encode(data?._id)}`);
-      } else {
-        toast.success("Mentor created successfully");
-        push(`/create-account/mentor/biodata?auth=${base64encode(data?._id)}`);
-      }
+      toast('Registration Successful');
+      push(`create-account/verification?auth=${base64encode(data?._id)}`)
+      // if (view === "mentee") {
+      //   toast.success("Mentee created successfully");
+      //   push(`/create-account/mentee/age?auth=${base64encode(data?._id)}`);
+      // } else {
+      //   toast.success("Mentor created successfully");
+      //   push(`/create-account/mentor/biodata?auth=${base64encode(data?._id)}`);
+
+      // }
     },
     onError(error) {
       errorMessageHandler(error as ErrorType);
@@ -94,6 +97,7 @@ function CreateForm() {
     > */}
 
       <Button
+      
         styles={{
           root: {
             marginTop: "12px",

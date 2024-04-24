@@ -11,6 +11,7 @@ import Image from "next/image";
 import DotImage from "@/public/images/newsletter_shape02.png.png";
 import Aside from "@/components/resources/aside";
 import Sections from "@/components/resources/section"
+import { Button } from "@mantine/core";
 function Resources() {
   return (
     <React.Fragment>
@@ -30,10 +31,13 @@ function Resources() {
             />
           </div>
         </div>
+        
         <div className="px-40 py-4 flex gap-8 mt-10">
+     
           <aside className="lg:block md:hidden sm:hidden lg:mt-8"> 
             <Aside/>
           </aside>
+         
           <section className="-mt-10"><Sections/></section>
         </div>
       </main>
