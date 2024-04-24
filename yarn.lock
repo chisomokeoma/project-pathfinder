@@ -106,10 +106,10 @@
   resolved "https://registry.npmjs.org/@humanwhocodes/object-schema/-/object-schema-2.0.3.tgz"
   integrity sha512-93zYdMES/c1D69yZiKDBj0V24vqNzB/koF26KPaagAfd3P/4gUlh3Dys5ogAK+Exi9QyzlD8x/08Zt7wIKcDcA==
 
-"@ibnlanre/portal@^3.24.0-beta":
-  version "3.24.0-beta"
-  resolved "https://registry.yarnpkg.com/@ibnlanre/portal/-/portal-3.24.0-beta.tgz#292649feeabdd146e16f745f0890564af1ab8149"
-  integrity sha512-hWnnmJakiel+pxu+q3k5j86JmIA1JADYYLsCWC/r+Q679DZGh0uXmjjQL2lFOGfShEPJS5oLXz8Utd5qGhyRKw==
+"@ibnlanre/portal@2.3.1":
+  version "2.3.1"
+  resolved "https://registry.yarnpkg.com/@ibnlanre/portal/-/portal-2.3.1.tgz#13208bc52571d87bc3a8c73cf3e14bb75ff9d707"
+  integrity sha512-rAtk1XrPvnF1Ko8qFIn+R6Q9sCvFikiTYq3wIvwiWtR8Q0hWwK5SG4JWByXvKp0mO3DXnTo2v70lGSj4Se0Z9Q==
 
 "@isaacs/cliui@^8.0.2":
   version "8.0.2"

@@ -116,7 +116,7 @@ const navArray = [
   },
 
   { name: "Blog", link: "" },
-  { name: "Messages", link: "/messages" },
+  { name: "Messages", link: "/notification" },
 ];
 
 // export const metadata: Metadata = {
@@ -145,7 +145,7 @@ export default function RootLayout({
                   <div className="flex max-w-[1400px] mx-auto px-4 justify-between items-center">
                     <section className=" flex items-center gap-[clamp(0.9rem,2vw,1.8rem)] ">
                       <div className=" flex  gap-[10px] items-center ">
-                        <GrLocation color="#DAD4FF" size={20} />
+                        <GrLocation color="#DAD4FF" size={20} className="" />
 
                         <p
                           className={`${poppins.className} text-creame text-[14px] font-medium`}
@@ -155,9 +155,9 @@ export default function RootLayout({
                       </div>
 
                       <div className=" flex items-center gap-[9.6px]">
-                        <GrMailOption color="#DAD4FF" />
+                        <GrMailOption color="#DAD4FF" className="max-[550px]:hidden" />
                         <p
-                          className={`${poppins.className} text-creame text-[14px] font-medium`}
+                          className={`${poppins.className} text-creame text-[14px] font-medium max-[550px]:hidden`}
                         >
                           info@pathfinders.com
                         </p>
@@ -165,21 +165,21 @@ export default function RootLayout({
                     </section>
                     <section className="flex items-center gap-[1.18rem]">
                       <div className=" flex items-center gap-[9.6px]">
-                        <PiPhoneCallLight color="#DAD4FF" size={20} />
+                        <PiPhoneCallLight color="#DAD4FF" size={20} className="max-[550px]:hidden " />
                         <p
-                          className={`${poppins.className} text-creame text-[14px] font-medium`}
+                          className={`${poppins.className} text-creame text-[14px] font-medium max-[610px]:hidden`}
                         >
                           Call us:
                         </p>
                         <p
-                          className={`${poppins.className} text-creame text-[14px] font-medium`}
+                          className={`${poppins.className} text-creame text-[14px] font-medium max-[550px]:hidden`}
                         >
                           234 801234567
                         </p>
                       </div>
 
-                      <div className=" flex gap-[9.6px] items-center">
-                        <p className=" text-[#DAD4FF] text-[14px] font-medium">
+                      <div className=" flex gap-[9.6px] items-center max-[883px]:hidden max-[550px]:flex">
+                        <p className=" text-[#DAD4FF] text-[14px] font-medium max-[550px]:hidden">
                           Follow Us On :
                         </p>
                         <article className=" flex gap-[9.6px]">
