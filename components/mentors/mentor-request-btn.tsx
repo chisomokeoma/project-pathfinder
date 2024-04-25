@@ -4,7 +4,8 @@ import { Button } from "@mantine/core";
 import React, { useContext } from "react";
 import classes from "@/components/home/signup.module.css";
 import { IModalContext, ModalContext } from "../provider/modal-provider";
-import AcceptRequest from "../modals/accept-request";
+import AcceptRequest from "../modals/resend-request";
+import ResendRequest from "../modals/resend-request";
 
 
 function MentorRequestBtn() {
@@ -13,7 +14,7 @@ const {modalState, setModalState} =  useContext(ModalContext) as IModalContext
   return (
     <section className=" flex gap-[24px] items-end justify-end">
       <Button onClick={() => setModalState({
-        component: <AcceptRequest/>,
+        component: <ResendRequest/>,
         opened: true
       })}
         styles={{

@@ -4,27 +4,23 @@ import { Suspense } from "react";
 
 const containerList = [
   {
-    headText: "Sessions with Tina",
-    subText: "Starts in 1hr",
-    time: "30 min",
+    headText: "Olamide Adeyemi",
+    subText: "UX Design Lead",
     picture: "/tina.svg",
   },
   {
-    headText: "Sessions with Sonia",
-    subText: "Starts in 1hr",
-    time: "30 min",
+    headText: "Ngozi Onwuka",
+    subText: "Degital Marketing",
     picture: "/tina.svg",
   },
   {
-    headText: "This week group session for you",
-    subText: "meeting with Que",
-    time: "30 min",
+    headText: "Olivia Mia",
+    subText: "Web Design",
     picture:"",
   },
   {
-    headText: "Sessions with tina",
+    headText: "Mohammed Ali",
     subText: "meeting with Tony",
-    time: "30 min",
     picture: "",
   },
 ];
@@ -32,23 +28,23 @@ const containerList = [
 function MentorshipRequest() {
   return (
     <main>
-      <div className="w-[987px] h-[1345px] mx-auto mt-[100px] flex flex-col gap-[40px]">
+      <div className="w-[987px] h-[1445px] mx-auto mt-[100px] flex flex-col gap-[40px] overflow-auto" >
         <section>
         <h4 className="w-[395px] h-[72px] text-[#161439] font-semibold text-[36px]">
          Mentorship Requests
         </h4>
-<p>Pending Request</p>
+<p>Awaiting approval from Mentor</p>
         </section>
         {containerList?.map((item) => (
-          <div className=" px-[31px] py-[30px] flex flex-col gap-[40px] shadow-xl bg-[#F6F6F6]   justify-center">
-            <div className=" flex gap-[42px] items-center pt-[30px]">
+          <div className=" px-[31px] py-[30px] flex flex-col gap-[40px] shadow-xl bg-[#F6F6F6]   justify-center overflow-auto ">
+            <div className=" flex gap-[42px] items-center pt-[30px] ">
               <Avatar size="xl" src={item.picture} />
               <article className=" flex flex-col">
-                <p className="font-regular text-[16px] text-[#2E1110]">
+                <p className="font-semibold text-[16px] text-[#2E1110]">
                   {item.headText}
                 </p>
-                <p className=" font-regular text-[13px] text-[#2E110]">
-                  {" "}
+                <p className=" font-medium text-[13px] text-purple">
+                 
                   {item.subText}
                 </p>
               </article>

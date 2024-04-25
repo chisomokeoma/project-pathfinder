@@ -2,6 +2,7 @@
 const nextConfig = {
     experimental: {
         optimizePackageImports: ['@mantine/core', '@mantine/hooks'],
+        // missingSuspenseWithCSRBailout: false,
       },
       eslint: {
         ignoreDuringBuilds: true,
@@ -10,8 +11,3 @@ const nextConfig = {
 };
 
 export default nextConfig;
-module.exports = {
-  experimental: {
-    missingSuspenseWithCSRBailout: false,
-  },
-}

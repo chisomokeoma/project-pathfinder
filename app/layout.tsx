@@ -71,26 +71,6 @@ const navArray = [
     link: "/mentors",
     dropDown: (
       <span className="">
-        {/* <Popover position="bottom" withArrow shadow="md">
-          <Popover.Target>
-            <span>
-              <IoIosArrowDown />
-            </span>
-          </Popover.Target>
-          <Popover.Dropdown
-            style={{ whiteSpace: "nowrap" }}
-            // w={170}
-            // py={10}
-            // px={5}
-            onClick={() => (
-              // <Link href="./mentors/requests">
-              <p className=" text-[14px] text-black font-normal z-50 cursor-pointer p-1 hover:bg-slate-300">
-                Mentorship requests
-              </p>
-              // </Link>
-            )}
-          ></Popover.Dropdown>
-        </Popover> */}
 
         <Menu shadow="md" width={200}>
           <Menu.Target>
@@ -116,7 +96,7 @@ const navArray = [
   },
 
   { name: "Blog", link: "" },
-  { name: "Messages", link: "/notification" },
+  { name: "Messages", link: "/messages" },
 ];
 
 // export const metadata: Metadata = {
@@ -271,18 +251,19 @@ export default function RootLayout({
                           </div>
                         </article>
                         <Link href="/create-account">
+                        
+
                           <Button
-                            classNames={classes}
-                            styles={{
-                              root: {
-                                backgroundColor: "#4B0082",
-                                borderRadius: "50px",
-                                width: "fit-content",
-                              },
-                            }}
-                          >
-                            Log in
-                          </Button>
+              style={{
+                height: "40px",
+                borderRadius: "50px",
+                backgroundColor: "#4B0082",
+                color: "#fff",
+                paddingInline: "30px",
+              }}
+            >
+              <span className="font-semibold text-[16px] ">   Log in</span>
+            </Button>
                         </Link>
                       </div>
                     </section>
