@@ -1,4 +1,4 @@
-
+'use client'
 
 import { Button } from '@mantine/core'
 import classes from "@/components/home/signup.module.css";

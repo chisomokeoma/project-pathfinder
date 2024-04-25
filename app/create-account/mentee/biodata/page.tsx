@@ -1,26 +1,6 @@
-"use client";
-
-import { Button, TextInput } from "@mantine/core";
-import classes from "@/components/home/signup.module.css";
-import Link from "next/link";
 import Hero from "@/components/home/hero";
-import { useForm } from "@mantine/form";
-import { useMutation } from "@tanstack/react-query";
-import { builder } from "@/api/builder";
-import { base64decode } from "nodejs-base64";
-import { useSearchParams } from "next/navigation";
-import build from "next/dist/build";
-import toast from "react-hot-toast";
 import MenteeBiodata from "@/components/authentication/mentee-biodata";
-
-// export interface IMenteeBio {
-//   name: string;
-//   gender: string;
-//   institution: string;
-//   location: string;
-//   parent_email: string;
-//   skills: string;
-// }
+import { Suspense } from "react";
 
 const styles = {
   root: {
@@ -36,29 +16,6 @@ const styles = {
 };
 
 export default function CreateAccountMentee() {
-  // const searchParams = useSearchParams();
-  // const auth = searchParams.get("auth");
-
-  // const menteeBioForm = useForm({
-  //   initialValues: {
-  //     name: "",
-  //     gender: "",
-  //     institution: "",
-  //     location: "",
-  //     parent_email: "",
-  //     skills: "",
-  //   },
-  // });
-
-  // const {mutation} = useMutation({
-  //   mutationFn: (payload: IMenteeBio) => builder.use().mentee.update_mentee(payload, base64decode(auth as string)),
-  //   mutationKey: builder.mentee.update_mentee.get(),
-  //   onSuccess(data,variable){
-  //     toast.success(`Account created successfully`)
-  //   }
-
-  // })
-
   return (
     <section className="flex flex-col">
       <Hero text="Create Account" />
@@ -72,8 +29,9 @@ export default function CreateAccountMentee() {
               Hey there! We just need a few details from you to get started.
             </p>
           </div>
-
-          <MenteeBiodata />
+          <Suspense>
+            <MenteeBiodata />
+          </Suspense>
         </article>
       </div>
     </section>

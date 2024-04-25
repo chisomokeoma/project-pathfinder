@@ -1,3 +1,5 @@
+'use client'
+
 import { Button, TextInput } from "@mantine/core";
 import Link from "next/link";
 import React from "react";

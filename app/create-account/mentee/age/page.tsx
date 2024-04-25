@@ -1,19 +1,16 @@
 "use client";
 
 import { Button, LoadingOverlay } from "@mantine/core";
-import classes from "@/components/home/signup.module.css";
-import Link from "next/link";
 import Hero from "@/components/home/hero";
 import { Suspense, useState } from "react";
-import { useSearchParams } from "next/navigation";
-import { base64decode } from "nodejs-base64";
+
 import AgeAction from "@/components/mentee/age-action";
 
 export default function MenteeAge() {
   const [age, setAge] = useState<"below18" | "above18" | "">("");
 
-  const searchParams = useSearchParams()
-  const auth =  searchParams.get('auth')
+  // const searchParams = useSearchParams()
+  // const auth =  searchParams.get('auth')
 
   return (
     <section className="flex flex-col">
@@ -83,11 +80,11 @@ export default function MenteeAge() {
             </p>
           </div> */}
           <Suspense>
-            <AgeAction/>
+            <AgeAction />
           </Suspense>
         </article>
       </div>
-      <LoadingOverlay/>
+      <LoadingOverlay />
     </section>
   );
 }
