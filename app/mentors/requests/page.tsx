@@ -1,5 +1,6 @@
 import MentorRequestBtn from "@/components/mentors/mentor-request-btn";
 import { Avatar } from "@mantine/core";
+import { Suspense } from "react";
 
 const containerList = [
   {
@@ -52,7 +53,10 @@ function MentorshipRequest() {
                 </p>
               </article>
             </div>
+            <Suspense>
+
            <MentorRequestBtn/>
+            </Suspense>
           </div>
         ))}
       </div>

@@ -9,8 +9,7 @@ import AgeAction from "@/components/mentee/age-action";
 export default function MenteeAge() {
   const [age, setAge] = useState<"below18" | "above18" | "">("");
 
-  // const searchParams = useSearchParams()
-  // const auth =  searchParams.get('auth')
+
 
   return (
     <section className="flex flex-col">
