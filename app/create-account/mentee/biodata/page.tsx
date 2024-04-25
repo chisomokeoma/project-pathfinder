@@ -36,8 +36,8 @@ const styles = {
 };
 
 export default function CreateAccountMentee() {
-  const searchParams = useSearchParams();
-  const auth = searchParams.get("auth");
+  // const searchParams = useSearchParams();
+  // const auth = searchParams.get("auth");
 
   // const menteeBioForm = useForm({
   //   initialValues: {

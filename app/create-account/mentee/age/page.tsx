@@ -4,9 +4,10 @@ import { Button, LoadingOverlay } from "@mantine/core";
 import classes from "@/components/home/signup.module.css";
 import Link from "next/link";
 import Hero from "@/components/home/hero";
-import { useState } from "react";
+import { Suspense, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { base64decode } from "nodejs-base64";
+import AgeAction from "@/components/mentee/age-action";
 
 export default function MenteeAge() {
   const [age, setAge] = useState<"below18" | "above18" | "">("");
@@ -58,7 +59,7 @@ export default function MenteeAge() {
               <span className="font-bold text-[24px] leading-6">Above 18</span>
             </Button>
           </div>
-          <div className="flex flex-col gap-7">
+          {/* <div className="flex flex-col gap-7">
             <Link
               className={
                 !age
@@ -80,7 +81,10 @@ export default function MenteeAge() {
                 Login
               </Link>
             </p>
-          </div>
+          </div> */}
+          <Suspense>
+            <AgeAction/>
+          </Suspense>
         </article>
       </div>
       <LoadingOverlay/>
