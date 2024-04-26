@@ -15,7 +15,7 @@ function Resources() {
   return (
     <React.Fragment>
       <main>
-        <div className="p-6 w-full h-56 flex items-center bg-[#856088]">
+        <div className="p-6 w-full h-56 flex items-center bg-darkgrey">
           <div className="flex gap-20">
             <div className="flex flex-col gap-2">
               <h1 className="font-bold text-4xl">All Resources</h1>

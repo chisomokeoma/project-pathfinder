@@ -24,6 +24,13 @@ const config = {
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
+        purple: "#4B0082",
+        black: "#161439",
+        lilac: "#7630F7",
+        grey: "#64748B",
+        creame: "#E6EAEF",
+        violet: "#EFEEFE",
+        darkgrey: "hsla(296, 17%, 45%, 0.5)",
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",

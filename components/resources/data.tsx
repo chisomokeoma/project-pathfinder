@@ -38,7 +38,7 @@ export const ResourcesData: ResourcesProps[] = [
     foot: (
       <div className="flex justify-between  items-center">
         <Button className="rounded-3xl flex gap-2" asChild>
-            <Link href="/resources/demo">
+            <Link href="/resources/details">
             Enrol Now <MdArrowRightAlt />
             </Link>
         
