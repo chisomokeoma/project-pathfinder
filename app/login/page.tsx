@@ -61,7 +61,7 @@ export default function Login() {
               </div>
               <div className="mt-10">
                 <p className="text-center text-[17px] leading-[21.13px] font-medium tracking-[4%] text-[#8D8D8D]">
-                  Forgot Password?{" "}
+                  Forgot Password?
                   <Link
                     href=""
                     className="text-[#64748B] text-[20.8px] leading-[25.36px]"

@@ -36,11 +36,13 @@ export const ResourcesData: ResourcesProps[] = [
     desc: "Learning Javascript With Imagination",
     by: "Ngozi Onwuka",
     foot: (
+
       <div className="flex justify-between  items-center">
         <Button className="rounded-3xl flex gap-2" asChild>
             <Link href="/resources/details">
             Enrol Now <MdArrowRightAlt />
             </Link>
+
         
         </Button>
         <span className="text-blue-700 capitalize font-bold">12,000 NGN</span>
@@ -55,12 +57,12 @@ export const ResourcesData: ResourcesProps[] = [
     desc: "The Complete Graphic Design for Beginners",
     by: "Ngozi Onwuka",
     foot: (
-      <div className="flex justify-between items-center">
-        <Button className="rounded-3xl flex gap-2">
-          Enrol Now <MdArrowRightAlt />
-        </Button>
+      // <div className="flex justify-between items-center">
+      //   <Button className="rounded-3xl flex gap-2">
+      //     Enrol Now <MdArrowRightAlt />
+      //   </Button>
         <span className="text-blue-700 capitalize">9,990 NGN</span>
-      </div>
+      // </div>
     ),
   },
   {
@@ -72,13 +74,13 @@ export const ResourcesData: ResourcesProps[] = [
     by: "Ngozi Onwuka",
     foot: (
         
-      <div className="flex justify-between items-center">
+      // <div className="flex justify-between items-center">
         
-        <Button className="rounded-3xl flex gap-2">
-          Enrol Now <MdArrowRightAlt />
-        </Button>
+      //   <Button className="rounded-3xl flex gap-2">
+      //     Enrol Now <MdArrowRightAlt />
+      //   </Button>
         <span className="text-blue-700 capitalize">14,000 NGN</span>
-      </div>
+      // </div>
     ),
   },
   {
@@ -89,12 +91,12 @@ export const ResourcesData: ResourcesProps[] = [
     desc: "Financial Analyst Training & Investing Course",
     by: "Ngozi Onwuka",
     foot: (
-      <div className="flex justify-between items-center">
-        <Button className="rounded-3xl flex gap-2">
-          Enrol Now <MdArrowRightAlt />
-        </Button>
+      // <div className="flex justify-between items-center">
+      //   <Button className="rounded-3xl flex gap-2">
+      //     Enrol Now <MdArrowRightAlt />
+      //   </Button>
         <span className="text-blue-700 capitalize">20,000 NGN</span>
-      </div>
+      // </div>
     ),
   },
  
@@ -106,12 +108,12 @@ export const ResourcesData: ResourcesProps[] = [
     desc: "Learning Javascript With Imagination",
     by: "Ngozi Onwuka",
     foot: (
-      <div className="flex justify-between items-center">
-        <Button className="rounded-3xl flex gap-2">
-          Enrol Now <MdArrowRightAlt />
-        </Button>
+      // <div className="flex justify-between items-center">
+      //   <Button className="rounded-3xl flex gap-2">
+      //     Enrol Now <MdArrowRightAlt />
+      //   </Button>
         <span className="text-blue-700 capitalize font-bold">12,000 NGN</span>
-      </div>
+      // </div>
     ),
   },
   {
@@ -122,12 +124,12 @@ export const ResourcesData: ResourcesProps[] = [
     desc: "The Complete Graphic Design for Beginners",
     by: "Ngozi Onwuka",
     foot: (
-      <div className="flex justify-between items-center">
-        <Button className="rounded-3xl flex gap-1">
-          Enrol Now <MdArrowRightAlt />
-        </Button>
+      // <div className="flex justify-between items-center">
+      //   <Button className="rounded-3xl flex gap-1">
+      //     Enrol Now <MdArrowRightAlt />
+      //   </Button>
         <span className="text-blue-700 capitalize">9,990 NGN</span>
-      </div>
+      // </div>
     ),
   },
   {
@@ -138,12 +140,12 @@ export const ResourcesData: ResourcesProps[] = [
     desc: "Learning Digital Marketing on Facebook",
     by: "Ngozi Onwuka",
     foot: (
-      <div className="flex justify-between items-center">
-        <Button className="rounded-3xl flex gap-2">
-          Enrol Now <MdArrowRightAlt />
-        </Button>
+      // <div className="flex justify-between items-center">
+      //   <Button className="rounded-3xl flex gap-2">
+      //     Enrol Now <MdArrowRightAlt />
+      //   </Button>
         <span className="text-blue-700 capitalize">14,000 NGN</span>
-      </div>
+      // </div>
     ),
   },
   {
@@ -154,12 +156,12 @@ export const ResourcesData: ResourcesProps[] = [
     desc: "Financial Analyst Training & Investing Course",
     by: "Ngozi Onwuka",
     foot: (
-      <div className="flex justify-between items-center">
-        <Button className="rounded-3xl flex gap-2">
-          Enrol Now <MdArrowRightAlt />
-        </Button>
+      // <div className="flex justify-between items-center">
+      //   <Button className="rounded-3xl flex gap-2">
+      //     Enrol Now <MdArrowRightAlt />
+      //   </Button>
         <span className="text-blue-700 capitalize">20,000 NGN</span>
-      </div>
+      // </div>
     ),
   },
   {
@@ -170,12 +172,12 @@ export const ResourcesData: ResourcesProps[] = [
     desc: "Learning Javascript With Imagination",
     by: "Ngozi Onwuka",
     foot: (
-      <div className="flex justify-between items-center">
-        <Button className="rounded-3xl flex gap-2">
-          Enrol Now <MdArrowRightAlt />
-        </Button>
+      // <div className="flex justify-between items-center">
+      //   <Button className="rounded-3xl flex gap-2">
+      //     Enrol Now <MdArrowRightAlt />
+      //   </Button>
         <span className="text-blue-700 capitalize font-bold">12,000 NGN</span>
-      </div>
+      // </div>
     ),
   },
   {
@@ -186,12 +188,12 @@ export const ResourcesData: ResourcesProps[] = [
     desc: "The Complete Graphic Design for Beginners",
     by: "Ngozi Onwuka",
     foot: (
-      <div className="flex justify-between items-center">
-        <Button className="rounded-3xl flex gap-2">
-          Enrol Now <MdArrowRightAlt />
-        </Button>
+      // <div className="flex justify-between items-center">
+      //   <Button className="rounded-3xl flex gap-2">
+      //     Enrol Now <MdArrowRightAlt />
+      //   </Button>
         <span className="text-blue-700 capitalize">9,990 NGN</span>
-      </div>
+      // </div>
     ),
   },
   {
@@ -202,12 +204,12 @@ export const ResourcesData: ResourcesProps[] = [
     desc: "Learning Digital Marketing on Facebook",
     by: "Ngozi Onwuka",
     foot: (
-      <div className="flex justify-between items-center">
-        <Button className="rounded-3xl flex gap-2">
-          Enrol Now <MdArrowRightAlt />
-        </Button>
+      // <div className="flex justify-between items-center">
+      //   <Button className="rounded-3xl flex gap-2">
+      //     Enrol Now <MdArrowRightAlt />
+      //   </Button>
         <span className="text-blue-700 capitalize">14,000 NGN</span>
-      </div>
+      // </div>
     ),
   },
   {
@@ -218,12 +220,12 @@ export const ResourcesData: ResourcesProps[] = [
     desc: "Financial Analyst Training & Investing Course",
     by: "Ngozi Onwuka",
     foot: (
-      <div className="flex justify-between items-center gap-20">
-        <Button className="rounded-3xl flex gap-2 ">
-          Enrol Now <MdArrowRightAlt/>
-        </Button>
+      // <div className="flex justify-between items-center gap-20">
+      //   <Button className="rounded-3xl flex gap-2 ">
+      //     Enrol Now <MdArrowRightAlt/>
+      //   </Button>
         <span className="text-blue-700 capitalize">20,000 NGN</span>
-      </div>
+      // </div>
     ),
   },
  

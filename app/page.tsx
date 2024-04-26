@@ -11,7 +11,6 @@ import { Accordion, Avatar, Button, TextInput } from "@mantine/core";
 import { ArrowLeft, ArrowRight } from "iconsax-react";
 import Image from "next/image";
 import { MdOutlineArrowForwardIos } from "react-icons/md";
-import classes from "@/components/home/signup.module.css";
 import MentorText from "@/components/home/mentor-text";
 import { Carousel } from "@mantine/carousel";
 import {
@@ -26,6 +25,10 @@ import clsx from "clsx";
 import Curve from "@/components/home/curve";
 import { CiCalendar } from "react-icons/ci";
 import { CgProfile } from "react-icons/cg";
+import { useRouter, useSearchParams } from "next/navigation";
+import Link from "next/link";
+import CarouselSection from "@/components/home/carousel-section";
+import AccordionSection from "@/components/home/accordion-section";
 
 const items = [
   {
@@ -66,25 +69,30 @@ const carouselList = [
     img: "/expertise1.svg",
     skill: " Development",
     details: "Learning JavaScript With Imagination",
+    id: 1,
   },
   {
     name: "Stella Frank",
     img: "/crush.svg",
     skill: " Design",
     details: "The Complete Graphic Design for Beginners",
+    id: 2,
   },
   {
     name: "Quenneth Yussuf",
     img: "/course.svg",
     skill: " Marketing",
     details: "Learning Digital Marketing on Facebook",
+    id: 3,
   },
   {
     name: "Sonia Onwuka",
     img: "/pro.svg",
     skill: " Business",
     details: "Financial Analyst Training & Investing Course",
+    id: 4,
   },
+  
 ];
 
 const mentorList = [
@@ -196,6 +204,7 @@ const styles = {
   },
 };
 export default function Home() {
+  const { push, replace } = useRouter();
   return (
     <section>
       <section className="h-[520px] flex items-center bg-[url(/hero-bg-image.png)] bg-cover bg-center bg-no-repeat">
@@ -353,6 +362,8 @@ export default function Home() {
               </div>
             </div>
             <Button
+              component={Link}
+              href="/mentors"
               styles={{
                 root: {
                   background: "#4B0082",
@@ -364,7 +375,7 @@ export default function Home() {
               }}
             >
               <span className="flex items-center text-base font-semibold leading-[17.92px] text-white gap-1">
-                Get Started
+                Expore
                 <ArrowRight size={14} color="white" />
               </span>
             </Button>
@@ -383,8 +394,24 @@ export default function Home() {
             Explore Our Lessons and Webninars
           </h3>
         </div>
+
+
         <section className=" ">
           <Carousel
+            styles={{
+              root: {
+                display: "flex",
+                alignItems: "center",
+                justifyItems: "center",
+              },
+              container: {
+                paddingRight: 0,
+                marginRight: 0,
+                flex: 1,
+                alignItems: "center",
+                justifyItems: "center",
+              },
+            }}
             withIndicators
             // height={200}
             slideSize={{ base: "100%", sm: "50%", md: "20.333333%" }}
@@ -394,8 +421,11 @@ export default function Home() {
             align="start"
           >
             {carouselList.map((item) => (
-              <Carousel.Slide>
-                <div className=" p-[clamp(12px,1.8vw,26px)] flex flex-col gap-[clamp(10px,1.4vw,20px)] bg-white rounded-lg">
+              <Carousel.Slide styles={{}}>
+                <Link
+                  href="/resources"
+                  className=" p-[clamp(12px,1.8vw,26px)] flex flex-col gap-[clamp(10px,1.4vw,20px)] bg-white rounded-lg"
+                >
                   <figure className=" w-[clamp(200px,19vw,278px)] ">
                     <Image
                       src={item.img}
@@ -434,6 +464,8 @@ export default function Home() {
 
                       <section className=" flex gap-[30px] items-center ">
                         <Button
+                          component={Link}
+                          href={`/mentors/${item.id}`}
                           styles={{
                             root: {
                               background: "#4B0082",
@@ -455,11 +487,13 @@ export default function Home() {
                       </section>
                     </div>
                   </section>
-                </div>
+                </Link>
               </Carousel.Slide>
             ))}
           </Carousel>
-        </section>
+         </section>
+
+        
       </section>
 
       {/* Subscribe Now Section */}
@@ -482,7 +516,11 @@ export default function Home() {
                 <span className="text-[36px] font-bold"> Offers?</span>
               </h2>
               <article className=" flex gap-[10px] ">
-                <TextInput placeholder="Type your e-mail" styles={styles} />
+                <TextInput
+                  disabled
+                  placeholder="Type your e-mail"
+                  styles={styles}
+                />
                 <Button
                   styles={{
                     root: {
@@ -531,6 +569,8 @@ export default function Home() {
               </p>
             </article>
             <Button
+              href="/mentors"
+              component={Link}
               styles={{
                 root: {
                   background: "#4B0082",
@@ -652,60 +692,10 @@ export default function Home() {
               </h4>
             </div>
 
-            <Accordion
-              defaultValue="customization"
-              styles={{
-                root: {
-                  width: "550px",
-                },
-                label: {
-                  color: "#4B0082",
-                  fontSize: "20px",
-                  fontWeight: 500,
-                },
-                content: {
-                  color: "#1C1A4A",
-                  fontSize: "16px",
-                  fontWeight: 400,
-                },
-              }}
-            >
-              <Accordion.Item value="customization">
-                <Accordion.Control>
-                  What is PathFinders all about?
-                </Accordion.Control>
-                <Accordion.Panel>
-                  PathFinders is a platform that connects mentees with mentors
-                  from diverse industrious and also offers learning resources to
-                  develop an individual’s skills.
-                </Accordion.Panel>
-              </Accordion.Item>
+           
+            <AccordionSection/>
 
-              <Accordion.Item value="flexibility">
-                <Accordion.Control>Why choose us?</Accordion.Control>
-                <Accordion.Panel>
-                  Configure components appearance and behavior with vast amount
-                  of settings or overwrite any part of component styles
-                </Accordion.Panel>
-              </Accordion.Item>
 
-              <Accordion.Item value="flexibility">
-                <Accordion.Control>Why choose us?</Accordion.Control>
-                <Accordion.Panel>
-                  Configure components appearance and behavior with vast amount
-                  of settings or overwrite any part of component styles
-                </Accordion.Panel>
-              </Accordion.Item>
-              <Accordion.Item value="focus-ring">
-                <Accordion.Control>
-                  How we provide these services?
-                </Accordion.Control>
-                <Accordion.Panel>
-                  With new :focus-visible pseudo-class focus ring appears only
-                  when user navigates with keyboard
-                </Accordion.Panel>
-              </Accordion.Item>
-            </Accordion>
           </section>
         </section>
       </section>
@@ -750,7 +740,10 @@ export default function Home() {
                 Take the step to mentor people and make global impact while also
                 enhancing your career
               </p>
+
               <Button
+                href="/create-account/details"
+                component={Link}
                 styles={{
                   root: {
                     background: "#4B0082",
@@ -776,7 +769,7 @@ export default function Home() {
             <figure
               className="w-[clamp(95px,13vw,190px)] bg-cover bg-no-repeat  "
               style={{
-                backgroundImage: 'url("/menteee-apply.svg")',
+                backgroundImage: 'url("./menteee-apply.svg")',
               }}
             ></figure>
 
@@ -789,6 +782,8 @@ export default function Home() {
                 and grow together.
               </p>
               <Button
+                href="/create-account/details?view=mentee"
+                component={Link}
                 styles={{
                   root: {
                     background: "#4B0082",

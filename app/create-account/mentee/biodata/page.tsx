@@ -1,7 +1,6 @@
-import { Button, TextInput } from "@mantine/core";
-import classes from "@/components/home/signup.module.css";
-import Link from "next/link";
 import Hero from "@/components/home/hero";
+import MenteeBiodata from "@/components/authentication/mentee-biodata";
+import { Suspense } from "react";
 
 const styles = {
   root: {
@@ -30,30 +29,9 @@ export default function CreateAccountMentee() {
               Hey there! We just need a few details from you to get started.
             </p>
           </div>
-          <div className="flex flex-col gap-[65.8px]">
-            <div className="flex flex-col gap-[30px]">
-              <TextInput styles={styles} placeholder="Name" />
-              <TextInput styles={styles} placeholder="Gender" />
-              <TextInput styles={styles} placeholder="Institution" />
-              <TextInput styles={styles} placeholder="Location" />
-              <TextInput styles={styles} placeholder="Parent's Email" />
-              <TextInput styles={styles} placeholder="Skills" />
-            </div>
-            <div className="flex flex-col gap-7">
-              <Link className="w-full" href="/create-account/verification">
-                <Button classNames={classes}>Sign Up</Button>
-              </Link>
-              <p className="text-base self-center leading-7 text-[#6D6C80]">
-                Already have an account?
-                <Link
-                  href="/login"
-                  className="text-[#5751E1] text-base leading-7 underline"
-                >
-                  Login
-                </Link>
-              </p>
-            </div>
-          </div>
+          <Suspense>
+            <MenteeBiodata />
+          </Suspense>
         </article>
       </div>
     </section>

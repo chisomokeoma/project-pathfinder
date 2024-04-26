@@ -10,12 +10,12 @@ export default function CreateAccount() {
   const [selected, setSelected] = useState<"" | "mentor" | "mentee">("");
   return (
     <section className="flex flex-col">
-      <Hero text="Login" />
+      <Hero text="Apply as" />
       <div className="mt-[100px] mb-[200px] bg-[#F9F9F9] py-[68px]">
         <article className="flex gap-[200px] px-12 py-8 border border-[#E1E1E1] bg-[#F7F7FA] rounded-lg w-[690px] mx-auto flex-col">
           <div className="flex flex-col">
             <h3 className="text-[36px] text-black font-semibold leading-[46.8px]">
-              Log In As ...
+             Apply as ...
             </h3>
             <p className="text-base leading-7 text-[#6D6C80]">
               For a better experience tailored to your needs
@@ -50,8 +50,12 @@ export default function CreateAccount() {
             <Link
               className={
                 !selected ? "pointer-events-none cursor-not-allowed" : ""
+             
               }
-              href={`/create-account/${selected}/age`}
+                
+              href={selected  === "mentee" ? `/create-account/${selected}/age` : `/create-account/${selected}/biodata` } 
+
+            
             >
               <Button disabled={!selected} classNames={classes}>
                 Sign Up
