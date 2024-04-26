@@ -74,3 +74,28 @@
       @apply bg-background text-foreground;
     }
   }
+
+.text-shadow{
+    box-shadow: 3px 3px 0px 0px #bcbcbd
+}
+
+.border-shadow{
+border-image: linear-gradient(#fff, #5751E1, #4B0082)  20 ;
+border-right: 3px solid; 
+}
+.rotated-text {
+  transform: rotate(180deg);
+  position: relative;
+  width: 520px;
+  height:300px;
+  margin: 0 auto;
+  font-size: 20px;
+}
+
+.background-shadow{
+        /* box-shadow: 10px 0 15px -2px #E9E2F9; */
+        /* box-shadow: linear-gradient(#fff, #E9E2F9)  50 ; */
+        background: linear-gradient(to left, #E9E2F9, #fff 25%, #fff 75%, #E9E2F9 100%);
+
+      
+}

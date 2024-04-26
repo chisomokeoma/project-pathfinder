@@ -3,6 +3,7 @@
 import Hero from "@/components/home/hero";
 import Image from "next/image";
 import { useRouter, useSearchParams } from "next/navigation";
+import { FaStar } from "react-icons/fa";
 
 const mentorArray = [
   {
@@ -83,12 +84,16 @@ function Mentors() {
                   <div className="flex w-[254.42px] h-[30.62px] font-semibold text-[#161439] text-[20px]">
                     {item?.name}
                   </div>
-                  <div className="text-[16px] font-regular text-[#5751E1]">
+                  <div className="text-[16px] font-normal text-[#5751E1]">
                     {item?.skill}
                   </div>
-                  <div className="text-[15px] font:regular text-[#7F7E97]">
-                    4.8 Ratings
-                  </div>
+                  <article className=" flex gap-[5px] items-center">
+                  <FaStar color="#F8BC24" />
+
+                  <p className="text-[15px] font-normal text-[#7F7E97]">
+                    (4.8 Ratings)
+                  </p>
+                  </article>
                   <div>
                     <button
                       className="bg-purple w-[202px] h-[50px] rounded-[20px] text-[16px] text-white"

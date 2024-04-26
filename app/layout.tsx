@@ -132,7 +132,7 @@ export default function RootLayout({
                 </section>
               </div>
             </header>
-            <nav className="py-[11px] sticky top-0 bg-white w-full">
+            <nav className="py-[11px] sticky top-0 bg-white w-full z-10">
               <div className="flex items-center max-w-[1400px] mx-auto px-4 justify-between">
                 <section className=" flex gap-[clamp(2.5rem,5.9vw,5.3rem)] items-center">
                   <figure className=" w-[clamp(2.7rem,4.4vw,4.4rem)] h-[clamp(2.7rem,4.4vw,4.4rem)]">
