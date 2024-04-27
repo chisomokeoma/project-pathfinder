@@ -36,15 +36,17 @@ export const ResourcesData: ResourcesProps[] = [
     desc: "Learning Javascript With Imagination",
     by: "Ngozi Onwuka",
     foot: (
-      // <div className="flex justify-between  items-center">
-      //   <Button className="rounded-3xl flex gap-2" asChild>
-      //       <Link href="/resources/demo">
-      //       Enrol Now <MdArrowRightAlt />
-      //       </Link>
+
+      <div className="flex justify-between  items-center">
+        <Button className="rounded-3xl flex gap-2" asChild>
+            <Link href="/resources/details">
+            Enrol Now <MdArrowRightAlt />
+            </Link>
+
         
-      //   </Button>
+        </Button>
         <span className="text-blue-700 capitalize font-bold">12,000 NGN</span>
-      // </div>
+      </div>
     ),
   },
   {
