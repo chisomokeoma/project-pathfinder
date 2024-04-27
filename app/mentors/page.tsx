@@ -1,8 +1,10 @@
 "use client";
 
+import { builder } from "@/api/builder";
 import Hero from "@/components/home/hero";
+import { useQuery } from "@tanstack/react-query";
 import Image from "next/image";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { FaStar } from "react-icons/fa";
 
 const mentorArray = [
@@ -57,8 +59,18 @@ const mentorArray = [
 ];
 
 function Mentors() {
+
   const breadCrumbs = [{ text: "Home" }, { text: "Mentors" }];
   const { push, replace } = useRouter();
+
+  const {data} = useQuery({
+    queryFn: () => builder.use().mentor.mentor_list(),
+    queryKey: builder.mentor.mentor_list.get()
+
+  })
+  console.log(data)
+
+
   return (
     <section className=" flex flex-col">
       <Hero text="All Mentors" route={breadCrumbs} />
@@ -66,7 +78,7 @@ function Mentors() {
         <div className="flex flex-col w-[1080px] h-[1305px] gap-[10px] mx-auto pt-[50px] pl-[5px]">
           <div className="w-[1072px] h-[255px] grid grid-cols-2 flex-row gap-[30px]">
             {mentorArray.map((item, idx) => (
-              <div className="w-[491.03px] h-[234.39px] flex mt-[10px] gap-[5px]" key={idx}>
+              <div key={idx} className="w-[491.03px] h-[234.39px] flex mt-[10px] gap-[5px]" >
                 <div className="w-[236.61px] h-[234.39px]  flex">
                   <div className="w-[228.98px] h-[212.01px] rounded-[20px] mt-[18px] ml-[9.5px] flex">
                     <figure className=" w-[243px] ">
@@ -80,7 +92,7 @@ function Mentors() {
                     </figure>
                   </div>
                 </div>
-                <div className="w-[254.42px] h-[135px] flex flex-col mt-[50px] gap-[2px]">
+                <div className="w-[254.42px] h-[135px] flex flex-col mt-[50px] gap-[2px]" >
                   <div className="flex w-[254.42px] h-[30.62px] font-semibold text-[#161439] text-[20px]">
                     {item?.name}
                   </div>
@@ -99,7 +111,7 @@ function Mentors() {
                       className="bg-purple w-[202px] h-[50px] rounded-[20px] text-[16px] text-white "
                       onClick={() => push(`/mentors/${item.id}`)}
                     >
-                      Schedule Session
+                     Request Mentorship
                     </button>
                   </div>
                 </div>

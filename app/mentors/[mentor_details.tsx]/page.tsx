@@ -2,7 +2,7 @@
 
 import Hero from "@/components/home/hero";
 import Image from "next/image";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { CgProfile } from "react-icons/cg";
 import { CiCalendar } from "react-icons/ci";
 import { FaStar } from "react-icons/fa";
@@ -51,7 +51,7 @@ function Mentorsdetails({ params }: { params: { mentor_details: string } }) {
               globe and she <br /> will be happy to connect with you.
             </div>
             <div>
-              <button className="text-purple bg-white rounded-[20px] w-[202px] h-[50px]" onClick={() => push('./mentors/scheduling')}>
+              <button className="text-purple bg-white rounded-[20px] w-[202px] h-[50px]" onClick={() => push('./schedule-details')}>
                 Schedule Session
               </button>
             </div>

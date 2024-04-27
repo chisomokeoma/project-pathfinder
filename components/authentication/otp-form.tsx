@@ -25,11 +25,12 @@ export default function OtpForm() {
     const searchParams = useSearchParams();
     const auth = searchParams.get("auth");
   
-    const { mutate } = useMutation({
-      mutationFn: () => builder.use().mentee.verify(base64decode(auth as string)),
-      mutationKey: builder.mentee.verify.get(),
+    const { mutate, isLoading } = useMutation({
+      mutationFn: () => builder.use().authentication.verify_mentee(base64decode(auth as string)),
+      mutationKey: builder.authentication.verify_mentee.get(),
       onSuccess(data, variable) {
         toast.success(`Account verified successfully`);
+        push("/login")
       },
     });
   return (
@@ -71,10 +72,11 @@ export default function OtpForm() {
         </div>
       </div>
       <div className=" flex flex-col ">
-        <Button
+        <Button type='submit'
           classNames={classes}
           style={{ width: "350px" }}
-          onClick={() => push("/login")}
+          loading={isLoading}
+          // onClick={() => push("/login")}
         >
           Send
         </Button>

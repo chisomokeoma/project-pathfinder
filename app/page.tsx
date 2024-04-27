@@ -224,6 +224,8 @@ export default function Home() {
               </p>
             </div>
             <Button
+            component={Link}
+            href="/create-account"
               styles={{
                 root: {
                   boxShadow: "4px 6px 0px 0px #7630F7",

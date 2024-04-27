@@ -2,7 +2,7 @@
 
 // import type { Metadata } from "next";
 import { Inter, Poppins } from "next/font/google";
-import { Menu, Button, Text, rem } from "@mantine/core";
+import { Menu, Button } from "@mantine/core";
 import "./globals.css";
 import "@mantine/core/styles.css";
 import "@mantine/dates/styles.css";
@@ -17,14 +17,9 @@ import {
 import { GrLocation, GrMailOption } from "react-icons/gr";
 import { PiPhoneCallLight } from "react-icons/pi";
 import Image from "next/image";
-import { MdAddToDrive, MdOutlineKeyboardArrowDown } from "react-icons/md";
+import { MdOutlineKeyboardArrowDown } from "react-icons/md";
 import { TbCategoryPlus } from "react-icons/tb";
-import {
-  ColorSchemeScript,
-  Indicator,
-  MantineProvider,
-  Popover,
-} from "@mantine/core";
+import { ColorSchemeScript, MantineProvider } from "@mantine/core";
 import NotificationIcon from "@/components/home/notification-icon";
 import LoveIcon from "@/components/home/love-icon";
 import classes from "@/components/home/login.module.css";
@@ -33,7 +28,9 @@ import Link from "next/link";
 import ModalProvider from "@/components/provider/modal-provider";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "react-hot-toast";
-import { Add } from "iconsax-react";
+
+import { GiHamburgerMenu } from "react-icons/gi";
+import HamburgerMenu from "@/components/common/hamburger-menu";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -71,7 +68,6 @@ const navArray = [
     link: "/mentors",
     dropDown: (
       <span className="">
-
         <Menu shadow="md" width={200}>
           <Menu.Target>
             <span>
@@ -87,8 +83,6 @@ const navArray = [
                 </p>
               </Link>
             </Menu.Item>
-            
-           
           </Menu.Dropdown>
         </Menu>
       </span>
@@ -135,7 +129,10 @@ export default function RootLayout({
                       </div>
 
                       <div className=" flex items-center gap-[9.6px]">
-                        <GrMailOption color="#DAD4FF" className="max-[550px]:hidden" />
+                        <GrMailOption
+                          color="#DAD4FF"
+                          className="max-[550px]:hidden"
+                        />
                         <p
                           className={`${poppins.className} text-creame text-[14px] font-medium max-[550px]:hidden`}
                         >
@@ -145,7 +142,11 @@ export default function RootLayout({
                     </section>
                     <section className="flex items-center gap-[1.18rem]">
                       <div className=" flex items-center gap-[9.6px]">
-                        <PiPhoneCallLight color="#DAD4FF" size={20} className="max-[550px]:hidden " />
+                        <PiPhoneCallLight
+                          color="#DAD4FF"
+                          size={20}
+                          className="max-[550px]:hidden "
+                        />
                         <p
                           className={`${poppins.className} text-creame text-[14px] font-medium max-[610px]:hidden`}
                         >
@@ -186,26 +187,28 @@ export default function RootLayout({
                         />
                       </figure>
 
-                      <div className=" flex justify-between gap-[27px]">
+                      <div className=" flex justify-between gap-[clamp(14px,1.8vw,27px)] max-[738px]:hidden">
                         {navArray.map((item, index) => (
-                          <Link
-                            key={index}
-                            href={item.link}
-                            className=" flex gap-[10px] items-center cursor-pointer hover:text-purple"
-                          >
-                            <p className=" text-[#161439] font-medium text-base ">
-                              {item.name}
-                            </p>
-                            <span className="pt-3  ">
+                          <div className=" flex gap-[10px] ">
+                            <Link
+                              key={index}
+                              href={item.link}
+                              className=" flex items-center cursor-pointer"
+                            >
+                              <p className=" text-[#161439] font-medium text-base  hover:text-purple">
+                                {item.name}
+                              </p>
+                            </Link>
+                            <span className="pt-3  cursor-pointer ">
                               {/* <IoIosArrowDown /> */}
                               {item.dropDown}
                             </span>
-                          </Link>
+                          </div>
                         ))}
                       </div>
                     </section>
                     <section className=" flex gap-6 items-center ">
-                      <div className="flex border-[#8D9DB5] h-12 px-[9px] border items-center rounded-[50px] min-w-[120px] w-[80%] overflow-hidden">
+                      <div className="flex border-[#8D9DB5] h-12 px-[9px] border items-center rounded-[50px] min-w-[120px] w-[80%] overflow-hidden  max-[1275px]:hidden">
                         <article className=" flex gap-[10px] items-center">
                           <TbCategoryPlus color="#7630F7" />
                           <p className=" text-black text-[14px] font-medium">
@@ -220,10 +223,10 @@ export default function RootLayout({
                         />
                       </div>
 
-                      <div className=" flex items-center gap-[29px]">
+                      <div className=" flex items-center gap-[clamp(15px,2vw,29px)]">
                         <article className=" flex gap-[29px]">
-                          <div className=" gap-[14px] flex items-center ">
-                            <article className=" relative">
+                          <div className=" gap-[14px] flex items-center  ">
+                            {/* <article className=" hidden relative max-[735px]:flex ">
                               <div
                                 className=" flex rounded-full bg-purple items-center justify-center p-[4px] w-[25px] h-[25px] absolute left-[21px] bottom-[29px]
     "
@@ -232,11 +235,43 @@ export default function RootLayout({
                               </div>
 
                               <span>
-                                <LoveIcon />
+                              <GiHamburgerMenu
+                                size={24}
+                                className="cursor-pointer"
+                              />
+                              <LoveIcon />
                               </span>
-                            </article>
-                            
-                            <Link href='/notification' className=" relative">
+                            </article> */}
+                            {/* <div className=" hidden max-[735px]:flex  ">
+                              <Menu shadow="md" width={200}>
+                                <Menu.Target>
+                                  <span>
+                                  <GiHamburgerMenu
+                                size={24}
+                                className="cursor-pointer"
+                              />
+                                  </span>
+                                </Menu.Target>
+
+                                <Menu.Dropdown>
+                                  <Menu.Item>
+                                    <Link href="./mentors/requests">
+                                      <p className=" text-[14px] text-black font-normal z-50 cursor-pointer p-1 hover:bg-slate-300">
+                                        Mentorship requests
+                                      </p>
+                                    </Link>
+                                  </Menu.Item>
+                                </Menu.Dropdown>
+                              </Menu>
+                            </div> */}
+                             <div className=" hidden max-[735px]:flex  ">
+                            <HamburgerMenu/>
+
+                             </div>
+
+
+
+                            <Link href="/notification" className=" relative">
                               <div
                                 className=" flex rounded-full bg-purple items-center justify-center p-[4px] w-[25px] h-[25px] absolute left-[21px] bottom-[29px]
     "
@@ -251,19 +286,20 @@ export default function RootLayout({
                           </div>
                         </article>
                         <Link href="/create-account">
-                        
-
                           <Button
-              style={{
-                height: "40px",
-                borderRadius: "50px",
-                backgroundColor: "#4B0082",
-                color: "#fff",
-                paddingInline: "30px",
-              }}
-            >
-              <span className="font-semibold text-[16px] ">   Log in</span>
-            </Button>
+                            style={{
+                              height: "40px",
+                              borderRadius: "50px",
+                              backgroundColor: "#4B0082",
+                              color: "#fff",
+                              paddingInline: "30px",
+                            }}
+                          >
+                            <span className="font-semibold text-[16px] ">
+                              {" "}
+                              Log in
+                            </span>
+                          </Button>
                         </Link>
                       </div>
                     </section>
@@ -271,7 +307,7 @@ export default function RootLayout({
                 </nav>
                 {children}
                 <footer className="  bg-purple  py-[37px]">
-                  <section className=" mx-auto flex justify-between px-4 max-w-[1400px]">
+                  <section className=" mx-auto grid grid-cols-4  max-[816px]:grid-cols-3 justify-between px-4 max-w-[1400px]">
                     <div className=" flex flex-col gap-[13px]">
                       <figure className=" w-[clamp(2.7rem,4.4vw,4.4rem)] h-[clamp(2.7rem,4.4vw,4.4rem)]">
                         <Image

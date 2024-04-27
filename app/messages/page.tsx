@@ -15,7 +15,7 @@ const messagesList = [
   },
 
   {
-    name: "    Raphael Emeka",
+    name: "Raphael Emeka",
     message: "  i decided to message you because ... ...",
     time: "11:50am",
     img: ""

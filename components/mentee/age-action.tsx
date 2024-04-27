@@ -18,9 +18,13 @@ export default function AgeAction() {
                   ? "pointer-events-none cursor-not-allowed w-full"
                   : "w-full"
               }
-              href={`/create-account/mentee/biodata?auth=${auth}`}
+              href={`/create-account/otp?auth=${auth}`}
             >
-              <Button disabled={!age} classNames={classes} >
+              <Button disabled={!age} classNames={classes} styles={{
+                root: {
+                  cursor: "pointer"
+                }
+              }} >
                 Proceed
               </Button>
             </Link>

@@ -8,10 +8,10 @@ export interface IWrapper {
 }
 function Hero({ text, route }: IWrapper) {
   return (
-    <section className="h-[221px] bg-[#85608880]">
+    <section className="h-[221px] bg-[#85608880] max-[471px]:h-[165px]">
       <div className="flex max-w-[1500px] items-center pl-[60px] justify-between">
         <article className=" flex flex-col gap-[25px]">
-          <h1 className="text-black text-[40px] leading-[48px] font-semibold">
+          <h1 className="text-black text-[40px] max-[471px]:text-[30px]  font-semibold">
             {text}
           </h1>
 

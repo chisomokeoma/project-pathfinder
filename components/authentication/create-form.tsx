@@ -1,7 +1,7 @@
 "use client";
 
 import { TextInput, PasswordInput, Button } from "@mantine/core";
-import { Link } from "iconsax-react";
+
 import { Loader, FacebookIcon, AppleIcon } from "lucide-react";
 import React from "react";
 import GoogleIIcon from "../icons/google-icon";
@@ -15,6 +15,7 @@ import classes from "@/components/home/signup.module.css";
 import { base64encode } from "nodejs-base64";
 import { cookieStorage, usePortal } from "@ibnlanre/portal";
 import { EmailQuery } from "@/api/queries-store";
+import Link from "next/link";
 
 export interface ICreateForm {
   email: string;
@@ -57,10 +58,15 @@ function CreateForm() {
     mutationKey: builder.authentication.create_account.get(),
     onSuccess({ data }, variables, contex) {
       toast("Registration Successful");
-      push(`/create-account/otp?auth=${base64encode(data?._id)}`);
+
+      if (view === "mentee") {
+        push(`/create-account/mentee/age?auth=${base64encode(data?._id)}`);
+      } else {
+        push(`/create-account/otp?auth=${base64encode(data?._id)}`);
+      }
       // cookieStorage.setItem('email-key', createForm.values.email)
-      setUserEmail(createForm.values.email)
-      createForm.reset()
+      setUserEmail(createForm.values.email);
+      createForm.reset();
 
       // if (view === "mentee") {
       //   toast.success("Mentee created successfully");
@@ -104,6 +110,7 @@ function CreateForm() {
     > */}
 
       <Button
+      
         styles={{
           root: {
             marginTop: "12px",

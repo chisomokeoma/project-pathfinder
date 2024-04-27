@@ -1,6 +1,6 @@
 "use client";
 
-import { Button } from "@mantine/core";
+import { Button, LoadingOverlay } from "@mantine/core";
 import classes from "@/components/home/signup.module.css";
 import Link from "next/link";
 import Hero from "@/components/home/hero";
@@ -53,8 +53,8 @@ export default function CreateAccount() {
              
               }
                 
-              href={selected  === "mentee" ? `/create-account/${selected}/age` : `/create-account/${selected}/biodata` } 
-
+              // href={selected  === "mentee" ? `/create-account/${selected}/age` : `/create-account/${selected}/biodata` } 
+              href={selected  === "mentee" ? `/create-account/details` : `/create-account/details` } 
             
             >
               <Button disabled={!selected} classNames={classes}>
@@ -73,6 +73,7 @@ export default function CreateAccount() {
           </div>
         </article>
       </div>
+      <LoadingOverlay/>
     </section>
   );
 }
