@@ -53,7 +53,7 @@ const Cate = () => {
             return (
               <ul className="flex flex-col gap-6 p-4" key={cate._id}>
                 <div className="flex gap-2 items-center group">
-                <FaChevronRight className="text-purple text-[1.1rem] font-light" />
+                  <FaChevronRight className="text-purple text-[1.1rem] font-light" />
                   <li className="text-[1.2rem] font-medium">
                     <Link href="/">{cate.tags}</Link>
                   </li>
@@ -79,7 +79,7 @@ const LatestBlogs = () => {
             <li key={cat._id} className="flex gap-4 items-center">
               <Link href="/" className="flex gap-4 items-center group">
                 <Image
-                  src={cat.image?.filePath.replace("../public", "")}
+                  src={cat.image?.filePath.replace("../public", "") ?? ""}
                   width={100}
                   height={100}
                   alt="blog"
@@ -89,7 +89,9 @@ const LatestBlogs = () => {
                   <span className="flex gap-2 items-center text-sm group-hover:underline">
                     <CiCalendarDate /> {formatDate(cat.publishedAt)}
                   </span>
-                  <p className="text-md font-semibold group-hover:underline">{cat.title}</p>
+                  <p className="text-md font-semibold group-hover:underline">
+                    {cat.title}
+                  </p>
                 </div>
               </Link>
               {/* this error means nothing just a typescript minor error but we can ignore it for now  */}

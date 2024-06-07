@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense } from "react";
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -10,7 +10,7 @@ import {
 import Image from "next/image";
 import DotImage from "@/public/images/newsletter_shape02.png.png";
 import Aside from "@/components/resources/aside";
-import Sections from "@/components/resources/section"
+import Sections from "@/components/resources/section";
 import { Button } from "@mantine/core";
 function Resources() {
   return (
@@ -31,14 +31,17 @@ function Resources() {
             />
           </div>
         </div>
-        
+
         <div className="px-40 py-4 flex gap-8 mt-10">
-     
-          <aside className="lg:block md:hidden sm:hidden lg:mt-8"> 
-            <Aside/>
+          <aside className="lg:block md:hidden sm:hidden lg:mt-8">
+            <Aside />
           </aside>
-         
-          <section className="-mt-10"><Sections/></section>
+
+          <section className="-mt-10">
+            <Suspense>
+              <Sections />
+            </Suspense>
+          </section>
         </div>
       </main>
     </React.Fragment>
@@ -47,14 +50,18 @@ function Resources() {
 
 const Breadcrumbs = () => {
   return (
-    <Breadcrumb >
+    <Breadcrumb>
       <BreadcrumbList>
         <BreadcrumbItem>
-          <BreadcrumbLink href="/" className="text-[#111111]">Home</BreadcrumbLink>
+          <BreadcrumbLink href="/" className="text-[#111111]">
+            Home
+          </BreadcrumbLink>
         </BreadcrumbItem>
-        <BreadcrumbSeparator className="text-black"/>
+        <BreadcrumbSeparator className="text-black" />
         <BreadcrumbItem>
-          <BreadcrumbLink href="/components" className="text-purple-800">Resources</BreadcrumbLink>
+          <BreadcrumbLink href="/components" className="text-purple-800">
+            Resources
+          </BreadcrumbLink>
         </BreadcrumbItem>
         {/* <BreadcrumbSeparator />
         <BreadcrumbItem>

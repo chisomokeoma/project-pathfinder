@@ -63,8 +63,8 @@ const mentorArray = [
 function Mentors() {
   const breadCrumbs = [{ text: "Home" }, { text: "Mentors" }];
   const { push, replace } = useRouter();
-  const searchParams = useSearchParams();
-  const auth = searchParams.get("auth");
+  // const searchParams = useSearchParams();
+  // const auth = searchParams.get("auth");
 
   const { data: mentorList } = useQuery({
     queryFn: () => builder.use().mentor.mentor_list(),
