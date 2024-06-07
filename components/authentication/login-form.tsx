@@ -12,7 +12,8 @@ import { useForm } from "@mantine/form";
 import { useMutation } from "@tanstack/react-query";
 import { builder } from "@/api/builder";
 import toast from "react-hot-toast";
-import { useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
+import { cookieStorage } from "@ibnlanre/portal";
 
 export interface ILogin {
   name: string;
@@ -35,6 +36,7 @@ const styles = {
 export default function LoginForm() {
   const searchParams = useSearchParams();
   const view = searchParams.get("view");
+  const { push } = useRouter();
 
   const loginForm = useForm({
     initialValues: {
@@ -53,7 +55,9 @@ export default function LoginForm() {
     onSuccess(data, variable) {
       console.log(data);
       toast.success("Login successful");
-      //  cookieStorage.setItem('')
+      push("/");
+
+       cookieStorage.setItem("pathfinder-auth", data?.data?.access_token)
     },
   });
   return (

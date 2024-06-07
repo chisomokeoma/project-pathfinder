@@ -285,7 +285,7 @@ export default function RootLayout({
                             </Link>
                           </div>
                         </article>
-                        <Link href="/create-account">
+                        <Link href="/login">
                           <Button
                             style={{
                               height: "40px",

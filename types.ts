@@ -15,3 +15,23 @@ export interface ISignUp {
 export interface Skills {
   types: any[];
 }
+
+
+export interface SignupResponse {
+  access_token: string;
+}
+
+
+export interface MentorsListResponse {
+  _id:       string;
+  name:      string;
+  email:     string;
+  resources: any[];
+  skills:    any[];
+  interests: any[];
+  status:    boolean;
+  createdAt: Date;
+  updatedAt: Date;
+  __v:       number;
+}
+

@@ -15,12 +15,20 @@ import { Card, CardHeader, CardTitle } from "../ui/card";
 import { Badge } from "../ui/badge";
 import { TiStarFullOutline } from "react-icons/ti";
 import { Button } from "../ui/button";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
+import { useQuery } from "@tanstack/react-query";
+import { builder } from "@/api/builder";
 
 export default function Sections() {
   const num = 100;
   const { push, replace } = useRouter();
+  const searchParams = useSearchParams();
+  const view = searchParams.get("view");
+
+  // const { data } = useQuery({
+  //   queryFn : () => builder.use().
+  // })
   return (
     <React.Fragment>
       <main className="">
@@ -43,17 +51,15 @@ export default function Sections() {
             <MdGridView size={32} className="bg-purple-700 text-white p-1" />
             <TfiMenuAlt size={32} />
 
-            <Link href='/resources/create-resource'>
-              <Button
-                className="h-[50px]"
-                variant="primary"
-             
-              >
-                <span className="flex items-center text-base font-semibold leading-[17.92px] text-white gap-1">
-                  Create Resources
-                </span>
-              </Button>
-            </Link>
+            {view === "mentor" ? (
+              <Link href="/resources/create-resource">
+                <Button className="h-[50px]" variant="primary">
+                  <span className="flex items-center text-base font-semibold leading-[17.92px] text-white gap-1">
+                    Create Resources
+                  </span>
+                </Button>
+              </Link>
+            ) : null}
           </div>
         </div>
         <section>
@@ -83,7 +89,8 @@ export default function Sections() {
                   <span className="p-0 ml-0 ">By {resources.by}</span>
 
                   <div className="flex justify-between items-center">
-                    <Button   variant='primary'
+                    <Button
+                      variant="primary"
                       className="rounded-3xl flex gap-2 text-white"
                       onClick={() => push(`/resources/1`)}
                     >
